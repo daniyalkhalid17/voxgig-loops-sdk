@@ -1,0 +1,85 @@
+# Entity: mailing_list
+
+main: kit: entity: mailing_list: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "The description of the mailing list."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the mailing list."
+      t: "`$STRING`"
+    }
+    isPublic: {
+      h: "Is Public"
+      n: "isPublic"
+      r: true
+      sh: "Whether the mailing list is public (`true`) or private (`false`)."
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the mailing list."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "mailing_list"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/lists"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/v1/lists"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "lists"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

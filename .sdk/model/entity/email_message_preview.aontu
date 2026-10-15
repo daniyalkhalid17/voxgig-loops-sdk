@@ -1,0 +1,124 @@
+# Entity: email_message_preview
+
+main: kit: entity: email_message_preview: {
+
+  alias: field: {}
+
+  fields: {
+    contactProperties: {
+      h: "Contact Properties"
+      n: "contactProperties"
+      r: false
+      sh: "Contact property values to render."
+      t: "`$OBJECT`"
+    }
+    dataVariables: {
+      h: "Data Variables"
+      n: "dataVariables"
+      r: false
+      sh: "Transactional data variables to render."
+      t: "`$OBJECT`"
+    }
+    emails: {
+      h: "Emails"
+      n: "emails"
+      r: true
+      sh: "One or more addresses to send the preview to."
+      t: "`$ARRAY`"
+    }
+    eventProperties: {
+      h: "Event Properties"
+      n: "eventProperties"
+      r: false
+      sh: "Event property values to render."
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the email message the preview was sent for."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "email_message_preview"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "contactProperties"
+            "dataVariables"
+            "emails"
+            "eventProperties"
+          ]
+          co: {
+            id: "POST /v1/email-messages/{emailMessageId}/preview"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "emailMessageId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/email-messages/{emailMessageId}/preview"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              emailMessageId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "email-messages"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "preview"
+            }
+          ]
+          t: {
+            req: {
+              contactProperties: "`reqdata.contact_property`"
+              dataVariables: "`reqdata.data_variable`"
+              emails: "`reqdata.email`"
+              eventProperties: "`reqdata.event_property`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

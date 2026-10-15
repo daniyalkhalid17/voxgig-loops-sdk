@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "transactional_metric": {
+      "TRANSACTIONAL_METRIC00": {
+        "deliveries": 50,
+        "hardBounces": 51,
+        "sends": 52,
+        "softBounces": 53,
+        "spamReports": 54,
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01",
+        "id": "TRANSACTIONAL_METRIC00"
+      },
+      "TRANSACTIONAL_METRIC01": {
+        "deliveries": 100,
+        "hardBounces": 101,
+        "sends": 102,
+        "softBounces": 103,
+        "spamReports": 104,
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01",
+        "id": "TRANSACTIONAL_METRIC01"
+      },
+      "TRANSACTIONAL_METRIC02": {
+        "deliveries": 150,
+        "hardBounces": 151,
+        "sends": 152,
+        "softBounces": 153,
+        "spamReports": 154,
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01",
+        "id": "TRANSACTIONAL_METRIC02"
+      }
+    }
+  },
+  "new": {
+    "transactional_metric": {
+      "transactional_metric_ref01": {
+        "deliveries": 200,
+        "hardBounces": 201,
+        "sends": 202,
+        "softBounces": 203,
+        "spamReports": 204
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/transactional-emails/{transactionalId}/metrics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

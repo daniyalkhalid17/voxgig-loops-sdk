@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "api_key": {
+      "API_KEY00": {
+        "success": true,
+        "teamName": "s15",
+        "id": "API_KEY00"
+      },
+      "API_KEY01": {
+        "success": true,
+        "teamName": "s29",
+        "id": "API_KEY01"
+      },
+      "API_KEY02": {
+        "success": true,
+        "teamName": "s3d",
+        "id": "API_KEY02"
+      }
+    }
+  },
+  "new": {
+    "api_key": {
+      "api_key_ref01": {
+        "success": true,
+        "teamName": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/api-key": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# BasicContactDeleteFlow
+
+main: kit: flow: BasicContactDeleteFlow:
+{
+  entity: "contact_delete",
+  kind: "basic",
+  name: "BasicContactDeleteFlow",
+  step: [
+    {
+      i: {
+        ref: "contact_delete_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicContactDeleteFlow"
+}

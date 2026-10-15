@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "transactional_draft": {
+      "TRANSACTIONAL_DRAFT00": {
+        "createdAt": "s64",
+        "dataVariables": [],
+        "draftEmailMessageContentRevisionId": "s66",
+        "draftEmailMessageId": "s67",
+        "id": "TRANSACTIONAL_DRAFT00",
+        "name": "s69",
+        "publishedEmailMessageId": "s6a",
+        "transactionalGroupId": "s6b",
+        "updatedAt": "s6c",
+        "url": "s6d",
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01"
+      },
+      "TRANSACTIONAL_DRAFT01": {
+        "createdAt": "sc8",
+        "dataVariables": [],
+        "draftEmailMessageContentRevisionId": "sca",
+        "draftEmailMessageId": "scb",
+        "id": "TRANSACTIONAL_DRAFT01",
+        "name": "scd",
+        "publishedEmailMessageId": "sce",
+        "transactionalGroupId": "scf",
+        "updatedAt": "sd0",
+        "url": "sd1",
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01"
+      },
+      "TRANSACTIONAL_DRAFT02": {
+        "createdAt": "s12c",
+        "dataVariables": [],
+        "draftEmailMessageContentRevisionId": "s12e",
+        "draftEmailMessageId": "s12f",
+        "id": "TRANSACTIONAL_DRAFT02",
+        "name": "s131",
+        "publishedEmailMessageId": "s132",
+        "transactionalGroupId": "s133",
+        "updatedAt": "s134",
+        "url": "s135",
+        "transactional_email_id": "TRANSACTIONAL_EMAIL01"
+      }
+    }
+  },
+  "new": {
+    "transactional_draft": {
+      "transactional_draft_ref01": {
+        "createdAt": "s190",
+        "dataVariables": [],
+        "draftEmailMessageContentRevisionId": "s192",
+        "draftEmailMessageId": "s193",
+        "name": "s195",
+        "publishedEmailMessageId": "s196",
+        "transactionalGroupId": "s197",
+        "updatedAt": "s198",
+        "url": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/transactional-emails/{transactionalId}/draft": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

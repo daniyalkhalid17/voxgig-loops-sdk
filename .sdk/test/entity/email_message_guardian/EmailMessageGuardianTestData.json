@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "email_message_guardian": {
+      "EMAIL_MESSAGE_GUARDIAN00": {
+        "errors": [],
+        "id": "EMAIL_MESSAGE_GUARDIAN00",
+        "warnings": []
+      },
+      "EMAIL_MESSAGE_GUARDIAN01": {
+        "errors": [],
+        "id": "EMAIL_MESSAGE_GUARDIAN01",
+        "warnings": []
+      },
+      "EMAIL_MESSAGE_GUARDIAN02": {
+        "errors": [],
+        "id": "EMAIL_MESSAGE_GUARDIAN02",
+        "warnings": []
+      }
+    }
+  },
+  "new": {
+    "email_message_guardian": {
+      "email_message_guardian_ref01": {
+        "errors": [],
+        "warnings": []
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/email-messages/{emailMessageId}/guardian": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

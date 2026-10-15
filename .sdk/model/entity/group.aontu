@@ -1,0 +1,625 @@
+# Entity: group
+
+main: kit: entity: group: {
+
+  alias: field: {}
+
+  fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the group was created."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The description of the group."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the group."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The name of the group."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the group was last updated."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "group"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/campaign-groups/{campaignGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "campaign_group_id"
+                or: "campaignGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/campaign-groups/{campaignGroupId}"
+          q: {
+            exist: [
+              "campaign_group_id"
+            ]
+          }
+          r: {
+            param: {
+              campaignGroupId: "campaign_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-groups"
+            }
+            {
+              var: "campaign_group_id"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/transactional-groups/{transactionalGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_group_id"
+                or: "transactionalGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/transactional-groups/{transactionalGroupId}"
+          q: {
+            exist: [
+              "transactional_group_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalGroupId: "transactional_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-groups"
+            }
+            {
+              var: "transactional_group_id"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/workflow-groups/{workflowGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workflow_group_id"
+                or: "workflowGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflow-groups/{workflowGroupId}"
+          q: {
+            exist: [
+              "workflow_group_id"
+            ]
+          }
+          r: {
+            param: {
+              workflowGroupId: "workflow_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflow-groups"
+            }
+            {
+              var: "workflow_group_id"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/campaign-groups"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/campaign-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-groups"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/transactional-groups"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/transactional-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-groups"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/workflow-groups"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/workflow-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflow-groups"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/campaign-groups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/campaign-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/transactional-groups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/transactional-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/workflow-groups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflow-groups"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflow-groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/campaign-groups/{campaignGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "campaign_group_id"
+                or: "campaignGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/campaign-groups/{campaignGroupId}"
+          q: {
+            exist: [
+              "campaign_group_id"
+            ]
+          }
+          r: {
+            param: {
+              campaignGroupId: "campaign_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaign-groups"
+            }
+            {
+              var: "campaign_group_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/transactional-groups/{transactionalGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_group_id"
+                or: "transactionalGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/transactional-groups/{transactionalGroupId}"
+          q: {
+            exist: [
+              "transactional_group_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalGroupId: "transactional_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-groups"
+            }
+            {
+              var: "transactional_group_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/workflow-groups/{workflowGroupId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workflow_group_id"
+                or: "workflowGroupId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflow-groups/{workflowGroupId}"
+          q: {
+            exist: [
+              "workflow_group_id"
+            ]
+          }
+          r: {
+            param: {
+              workflowGroupId: "workflow_group_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflow-groups"
+            }
+            {
+              var: "workflow_group_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,79 @@
+# Entity: contact_delete
+
+main: kit: entity: contact_delete: {
+
+  alias: field: {}
+
+  fields: {
+    email: {
+      h: "Email"
+      n: "email"
+      r: false
+      sh: "The contact's email address."
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      t: "`$STRING`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    userId: {
+      h: "User Id"
+      n: "userId"
+      r: false
+      sh: "The contact's unique user ID."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "contact_delete"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "email"
+            "userId"
+          ]
+          co: {
+            id: "POST /v1/contacts/delete"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/contacts/delete"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "delete"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

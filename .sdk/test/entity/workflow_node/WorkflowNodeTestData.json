@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "workflow_node": {
+      "WORKFLOW_NODE00": {
+        "id": "WORKFLOW_NODE00",
+        "workflow_id": "WORKFLOW01",
+        "node_id": "NODE01"
+      },
+      "WORKFLOW_NODE01": {
+        "id": "WORKFLOW_NODE01",
+        "workflow_id": "WORKFLOW01",
+        "node_id": "NODE01"
+      },
+      "WORKFLOW_NODE02": {
+        "id": "WORKFLOW_NODE02",
+        "workflow_id": "WORKFLOW01",
+        "node_id": "NODE01"
+      }
+    }
+  },
+  "new": {
+    "workflow_node": {
+      "workflow_node_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /v1/workflows/{workflowId}/nodes/{nodeId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /v1/workflows/{workflowId}/nodes/{nodeId}/recursive": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

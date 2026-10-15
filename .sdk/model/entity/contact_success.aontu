@@ -1,0 +1,181 @@
+# Entity: contact_success
+
+main: kit: entity: contact_success: {
+
+  alias: field: {}
+
+  fields: {
+    email: {
+      h: "Email"
+      n: "email"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The contact's email address."
+      t: "`$STRING`"
+    }
+    firstName: {
+      h: "First Name"
+      n: "firstName"
+      r: false
+      sh: "The contact's first name."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    lastName: {
+      h: "Last Name"
+      n: "lastName"
+      r: false
+      sh: "The contact's last name."
+      t: "`$STRING`"
+    }
+    mailingLists: {
+      h: "Mailing Lists"
+      n: "mailingLists"
+      r: false
+      sh: "Manage mailing list subscriptions."
+      t: "`$OBJECT`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "A custom source value to replace the default “API”."
+      t: "`$STRING`"
+    }
+    subscribed: {
+      h: "Subscribed"
+      n: "subscribed"
+      r: false
+      sh: "Whether the contact will receive campaign and workflow emails."
+      t: "`$BOOLEAN`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    userGroup: {
+      h: "User Group"
+      n: "userGroup"
+      r: false
+      sh: "The contact's user group."
+      t: "`$STRING`"
+    }
+    userId: {
+      h: "User Id"
+      n: "userId"
+      r: false
+      sh: "A unique user ID (for example, from an external application)."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "contact_success"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "email"
+            "firstName"
+            "lastName"
+            "mailingLists"
+            "source"
+            "subscribed"
+            "userGroup"
+            "userId"
+          ]
+          co: {
+            id: "POST /v1/contacts/create"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/contacts/create"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "create"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          bf: [
+            "email"
+            "firstName"
+            "lastName"
+            "mailingLists"
+            "source"
+            "subscribed"
+            "userGroup"
+            "userId"
+          ]
+          co: {
+            id: "PUT /v1/contacts/update"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PUT"
+          o: "/v1/contacts/update"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "update"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

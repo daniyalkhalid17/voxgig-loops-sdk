@@ -1,0 +1,81 @@
+# Entity: create_upload
+
+main: kit: entity: create_upload: {
+
+  alias: field: {}
+
+  fields: {
+    contentLength: {
+      h: "Content Length"
+      n: "contentLength"
+      r: true
+      sh: "The size of the file in bytes."
+      t: "`$INTEGER`"
+    }
+    contentType: {
+      h: "Content Type"
+      n: "contentType"
+      r: true
+      sh: "The MIME type of the file to upload."
+      t: "`$STRING`"
+    }
+    emailAssetId: {
+      h: "Email Asset Id"
+      n: "emailAssetId"
+      r: true
+      sh: "The ID of the created asset."
+      t: "`$STRING`"
+    }
+    presignedUrl: {
+      h: "Presigned Url"
+      n: "presignedUrl"
+      r: true
+      sh: "The pre-signed URL to upload the file to with an HTTP `PUT` request."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "create_upload"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "contentLength"
+            "contentType"
+          ]
+          co: {
+            id: "POST /v1/uploads"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/uploads"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+          ]
+          t: {
+            req: {
+              contentLength: "`reqdata.content_length`"
+              contentType: "`reqdata.content_type`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

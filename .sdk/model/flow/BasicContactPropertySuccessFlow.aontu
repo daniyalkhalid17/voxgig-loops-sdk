@@ -1,0 +1,18 @@
+# BasicContactPropertySuccessFlow
+
+main: kit: flow: BasicContactPropertySuccessFlow:
+{
+  entity: "contact_property_success",
+  kind: "basic",
+  name: "BasicContactPropertySuccessFlow",
+  step: [
+    {
+      i: {
+        ref: "contact_property_success_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicContactPropertySuccessFlow"
+}

@@ -1,0 +1,254 @@
+# Entity: workflow_node_with_revision
+
+main: kit: entity: workflow_node_with_revision: {
+
+  alias: field: {}
+
+  fields: {
+    workflowRevisionId: {
+      h: "Workflow Revision Id"
+      n: "workflowRevisionId"
+      r: true
+      sh: "The current workflow revision token."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+  }
+
+  name: "workflow_node_with_revision"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "expectedRevisionId"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}/nodes/{nodeId}/add-branch"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "node_id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}/add-branch"
+          q: {
+            "$action": "add_branch"
+            exist: [
+              "node_id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "node_id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "node_id"
+            }
+            {
+              lit: "add-branch"
+            }
+          ]
+          t: {
+            req: {
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "expectedRevisionId"
+            "newTargetNodeId"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}/nodes/{nodeId}/reroute"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "node_id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}/reroute"
+          q: {
+            "$action": "reroute"
+            exist: [
+              "node_id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "node_id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "node_id"
+            }
+            {
+              lit: "reroute"
+            }
+          ]
+          t: {
+            req: {
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              newTargetNodeId: "`reqdata.new_target_node_id`"
+            }
+            res: "`body.workflow`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/workflows/{workflowId}/nodes/{nodeId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "node_id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}"
+          q: {
+            exist: [
+              "node_id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "node_id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "node_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

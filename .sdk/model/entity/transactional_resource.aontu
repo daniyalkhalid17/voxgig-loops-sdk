@@ -1,0 +1,364 @@
+# Entity: transactional_resource
+
+main: kit: entity: transactional_resource: {
+
+  alias: field: {}
+
+  fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the transactional email was created."
+      t: "`$STRING`"
+    }
+    dataVariables: {
+      h: "Data Variables"
+      n: "dataVariables"
+      r: true
+      sh: "Data variable names used by the published email."
+      t: "`$ARRAY`"
+    }
+    draftEmailMessageId: {
+      h: "Draft Email Message Id"
+      n: "draftEmailMessageId"
+      r: true
+      sh: "The ID of the draft email message."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the transactional email."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The name of the transactional email."
+      t: "`$STRING`"
+    }
+    publishedEmailMessageId: {
+      h: "Published Email Message Id"
+      n: "publishedEmailMessageId"
+      r: true
+      sh: "The ID of the published email message."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    transactionalGroupId: {
+      h: "Transactional Group Id"
+      n: "transactionalGroupId"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The ID of the group this transactional email belongs to."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the transactional email was last updated."
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the transactional email in the Loops app."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "transactional_resource"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "name"
+            "transactionalGroupId"
+          ]
+          co: {
+            id: "POST /v1/transactional-emails/{transactionalId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_id"
+                or: "transactionalId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/transactional-emails/{transactionalId}"
+          q: {
+            exist: [
+              "transactional_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalId: "transactional_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+            {
+              var: "transactional_id"
+            }
+          ]
+          t: {
+            req: {
+              name: "`reqdata.name`"
+              transactionalGroupId: "`reqdata.transactional_group_id`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /v1/transactional-emails/{transactionalId}/publish"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_id"
+                or: "transactionalId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/transactional-emails/{transactionalId}/publish"
+          q: {
+            exist: [
+              "transactional_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalId: "transactional_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+            {
+              var: "transactional_id"
+            }
+            {
+              lit: "publish"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "name"
+            "transactionalGroupId"
+          ]
+          co: {
+            id: "POST /v1/transactional-emails"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/transactional-emails"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+          ]
+          t: {
+            req: {
+              name: "`reqdata.name`"
+              transactionalGroupId: "`reqdata.transactional_group_id`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/transactional-emails"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/transactional-emails"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/transactional-emails/{transactionalId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_id"
+                or: "transactionalId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/transactional-emails/{transactionalId}"
+          q: {
+            exist: [
+              "transactional_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalId: "transactional_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+            {
+              var: "transactional_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

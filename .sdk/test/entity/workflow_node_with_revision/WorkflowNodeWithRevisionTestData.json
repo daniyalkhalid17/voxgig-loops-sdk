@@ -1,0 +1,48 @@
+{
+  "existing": {
+    "workflow_node_with_revision": {
+      "WORKFLOW_NODE_WITH_REVISION00": {
+        "workflowRevisionId": "sa",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "id": "WORKFLOW_NODE_WITH_REVISION00"
+      },
+      "WORKFLOW_NODE_WITH_REVISION01": {
+        "workflowRevisionId": "s14",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "id": "WORKFLOW_NODE_WITH_REVISION01"
+      },
+      "WORKFLOW_NODE_WITH_REVISION02": {
+        "workflowRevisionId": "s1e",
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "id": "WORKFLOW_NODE_WITH_REVISION02"
+      }
+    }
+  },
+  "new": {
+    "workflow_node_with_revision": {
+      "workflow_node_with_revision_ref01": {
+        "workflowRevisionId": "s28"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/workflows/{workflowId}/nodes/{nodeId}/add-branch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/workflows/{workflowId}/nodes/{nodeId}/reroute": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/workflows/{workflowId}/nodes/{nodeId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

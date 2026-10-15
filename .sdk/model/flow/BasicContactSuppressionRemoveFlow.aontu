@@ -1,0 +1,9 @@
+# BasicContactSuppressionRemoveFlow
+
+main: kit: flow: BasicContactSuppressionRemoveFlow:
+{
+  entity: "contact_suppression_remove",
+  kind: "basic",
+  name: "BasicContactSuppressionRemoveFlow",
+  "key$": "BasicContactSuppressionRemoveFlow"
+}

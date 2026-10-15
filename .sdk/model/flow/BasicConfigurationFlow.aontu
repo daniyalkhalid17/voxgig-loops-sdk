@@ -1,0 +1,22 @@
+# BasicConfigurationFlow
+
+main: kit: flow: BasicConfigurationFlow:
+{
+  entity: "configuration",
+  kind: "basic",
+  name: "BasicConfigurationFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "configuration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicConfigurationFlow"
+}

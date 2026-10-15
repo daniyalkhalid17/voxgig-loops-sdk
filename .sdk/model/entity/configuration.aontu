@@ -1,0 +1,46 @@
+# Entity: configuration
+
+main: kit: entity: configuration: {
+
+  alias: field: {}
+
+  name: "configuration"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/dedicated-sending-ips"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/v1/dedicated-sending-ips"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "dedicated-sending-ips"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

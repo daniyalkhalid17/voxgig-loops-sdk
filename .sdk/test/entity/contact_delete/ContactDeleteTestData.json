@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "contact_delete": {
+      "CONTACT_DELETE00": {
+        "email": "s28",
+        "message": "s29",
+        "success": true,
+        "userId": "s2b",
+        "id": "CONTACT_DELETE00"
+      },
+      "CONTACT_DELETE01": {
+        "email": "s50",
+        "message": "s51",
+        "success": true,
+        "userId": "s53",
+        "id": "CONTACT_DELETE01"
+      },
+      "CONTACT_DELETE02": {
+        "email": "s78",
+        "message": "s79",
+        "success": true,
+        "userId": "s7b",
+        "id": "CONTACT_DELETE02"
+      }
+    }
+  },
+  "new": {
+    "contact_delete": {
+      "contact_delete_ref01": {
+        "email": "sa0",
+        "message": "sa1",
+        "success": true,
+        "userId": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/contacts/delete": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

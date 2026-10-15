@@ -1,0 +1,119 @@
+# Entity: update_component
+
+main: kit: entity: update_component: {
+
+  alias: field: {}
+
+  fields: {
+    affectedEmailCount: {
+      h: "Affected Email Count"
+      n: "affectedEmailCount"
+      r: true
+      sh: "The number of emails using this component that were updated by the body change."
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the component."
+      t: "`$STRING`"
+    }
+    lmx: {
+      h: "Lmx"
+      n: "lmx"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The component body serialized as LMX."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The name of the component."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "update_component"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "lmx"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/components/{componentId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "componentId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/components/{componentId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              componentId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "components"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

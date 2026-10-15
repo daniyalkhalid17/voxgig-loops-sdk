@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "update_component": {
+      "UPDATE_COMPONENT00": {
+        "affectedEmailCount": 40,
+        "id": "UPDATE_COMPONENT00",
+        "lmx": "s2a",
+        "name": "s2b"
+      },
+      "UPDATE_COMPONENT01": {
+        "affectedEmailCount": 80,
+        "id": "UPDATE_COMPONENT01",
+        "lmx": "s52",
+        "name": "s53"
+      },
+      "UPDATE_COMPONENT02": {
+        "affectedEmailCount": 120,
+        "id": "UPDATE_COMPONENT02",
+        "lmx": "s7a",
+        "name": "s7b"
+      }
+    }
+  },
+  "new": {
+    "update_component": {
+      "update_component_ref01": {
+        "affectedEmailCount": 160,
+        "lmx": "sa2",
+        "name": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/components/{componentId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

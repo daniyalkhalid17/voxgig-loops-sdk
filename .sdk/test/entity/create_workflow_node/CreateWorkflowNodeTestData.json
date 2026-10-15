@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "create_workflow_node": {
+      "CREATE_WORKFLOW_NODE00": {
+        "node": "s14",
+        "workflow": {},
+        "workflow_id": "WORKFLOW01",
+        "id": "CREATE_WORKFLOW_NODE00"
+      },
+      "CREATE_WORKFLOW_NODE01": {
+        "node": "s28",
+        "workflow": {},
+        "workflow_id": "WORKFLOW01",
+        "id": "CREATE_WORKFLOW_NODE01"
+      },
+      "CREATE_WORKFLOW_NODE02": {
+        "node": "s3c",
+        "workflow": {},
+        "workflow_id": "WORKFLOW01",
+        "id": "CREATE_WORKFLOW_NODE02"
+      }
+    }
+  },
+  "new": {
+    "create_workflow_node": {
+      "create_workflow_node_ref01": {
+        "node": "s50",
+        "workflow": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/workflows/{workflowId}/nodes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

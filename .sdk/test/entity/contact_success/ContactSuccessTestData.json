@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "contact_success": {
+      "CONTACT_SUCCESS00": {
+        "email": "s64",
+        "firstName": "s65",
+        "id": "CONTACT_SUCCESS00",
+        "lastName": "s67",
+        "mailingLists": {},
+        "source": "s69",
+        "subscribed": true,
+        "success": false,
+        "userGroup": "s6c",
+        "userId": "s6d"
+      },
+      "CONTACT_SUCCESS01": {
+        "email": "sc8",
+        "firstName": "sc9",
+        "id": "CONTACT_SUCCESS01",
+        "lastName": "scb",
+        "mailingLists": {},
+        "source": "scd",
+        "subscribed": true,
+        "success": false,
+        "userGroup": "sd0",
+        "userId": "sd1"
+      },
+      "CONTACT_SUCCESS02": {
+        "email": "s12c",
+        "firstName": "s12d",
+        "id": "CONTACT_SUCCESS02",
+        "lastName": "s12f",
+        "mailingLists": {},
+        "source": "s131",
+        "subscribed": true,
+        "success": false,
+        "userGroup": "s134",
+        "userId": "s135"
+      }
+    }
+  },
+  "new": {
+    "contact_success": {
+      "contact_success_ref01": {
+        "email": "s190",
+        "firstName": "s191",
+        "lastName": "s193",
+        "mailingLists": {},
+        "source": "s195",
+        "subscribed": true,
+        "success": false,
+        "userGroup": "s198",
+        "userId": "s199"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/contacts/create": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /v1/contacts/update": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

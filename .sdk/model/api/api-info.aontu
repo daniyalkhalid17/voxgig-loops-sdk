@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "This is the OpenAPI Spec for the [Loops API](https://loops.so/docs/api)."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "apiKey"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://app.loops.so/api"
+        }
+      ]
+      summary: "This is the OpenAPI Spec for the [Loops API](https://loops.so/docs/api)."
+      title: "Loops OpenAPI Spec"
+      version: "1.22.4"
+      website: "https://app.loops.so"
+    }
+  }
+}
+

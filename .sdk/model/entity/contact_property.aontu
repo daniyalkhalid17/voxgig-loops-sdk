@@ -1,0 +1,81 @@
+# Entity: contact_property
+
+main: kit: entity: contact_property: {
+
+  alias: field: {}
+
+  fields: {
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      sh: "The key of the contact property."
+      t: "`$STRING`"
+    }
+    label: {
+      h: "Label"
+      n: "label"
+      r: true
+      sh: "The human-friendly label for this property."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "The type of property."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "contact_property"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/contacts/properties"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "list"
+                or: "list"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/contacts/properties"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "properties"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

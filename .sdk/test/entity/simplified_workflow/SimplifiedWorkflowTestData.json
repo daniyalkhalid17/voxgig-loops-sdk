@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "simplified_workflow": {
+      "SIMPLIFIED_WORKFLOW00": {
+        "createdAt": "s78",
+        "description": "s79",
+        "expectedRevisionId": "s7a",
+        "id": "SIMPLIFIED_WORKFLOW00",
+        "mailingListId": "s7c",
+        "name": "s7d",
+        "nodes": {},
+        "rootNodeId": "s7f",
+        "status": "s80",
+        "updatedAt": "s81",
+        "url": "s82",
+        "workflowRevisionId": "s83"
+      },
+      "SIMPLIFIED_WORKFLOW01": {
+        "createdAt": "sf0",
+        "description": "sf1",
+        "expectedRevisionId": "sf2",
+        "id": "SIMPLIFIED_WORKFLOW01",
+        "mailingListId": "sf4",
+        "name": "sf5",
+        "nodes": {},
+        "rootNodeId": "sf7",
+        "status": "sf8",
+        "updatedAt": "sf9",
+        "url": "sfa",
+        "workflowRevisionId": "sfb"
+      },
+      "SIMPLIFIED_WORKFLOW02": {
+        "createdAt": "s168",
+        "description": "s169",
+        "expectedRevisionId": "s16a",
+        "id": "SIMPLIFIED_WORKFLOW02",
+        "mailingListId": "s16c",
+        "name": "s16d",
+        "nodes": {},
+        "rootNodeId": "s16f",
+        "status": "s170",
+        "updatedAt": "s171",
+        "url": "s172",
+        "workflowRevisionId": "s173"
+      }
+    }
+  },
+  "new": {
+    "simplified_workflow": {
+      "simplified_workflow_ref01": {
+        "createdAt": "s1e0",
+        "description": "s1e1",
+        "expectedRevisionId": "s1e2",
+        "mailingListId": "s1e4",
+        "name": "s1e5",
+        "nodes": {},
+        "rootNodeId": "s1e7",
+        "status": "s1e8",
+        "updatedAt": "s1e9",
+        "url": "s1ea",
+        "workflowRevisionId": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/workflows/{workflowId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/workflows": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/workflows": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/workflows/{workflowId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

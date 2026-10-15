@@ -1,0 +1,22 @@
+# BasicContactPropertyFlow
+
+main: kit: flow: BasicContactPropertyFlow:
+{
+  entity: "contact_property",
+  kind: "basic",
+  name: "BasicContactPropertyFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "contact_property_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContactPropertyFlow"
+}

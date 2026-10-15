@@ -1,0 +1,22 @@
+# BasicMailingListFlow
+
+main: kit: flow: BasicMailingListFlow:
+{
+  entity: "mailing_list",
+  kind: "basic",
+  name: "BasicMailingListFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "mailing_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMailingListFlow"
+}

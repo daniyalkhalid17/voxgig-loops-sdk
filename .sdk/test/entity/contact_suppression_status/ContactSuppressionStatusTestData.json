@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "contact_suppression_status": {
+      "CONTACT_SUPPRESSION_STATUS00": {
+        "contact": {},
+        "isSuppressed": false,
+        "removalQuota": {},
+        "id": "CONTACT_SUPPRESSION_STATUS00"
+      },
+      "CONTACT_SUPPRESSION_STATUS01": {
+        "contact": {},
+        "isSuppressed": false,
+        "removalQuota": {},
+        "id": "CONTACT_SUPPRESSION_STATUS01"
+      },
+      "CONTACT_SUPPRESSION_STATUS02": {
+        "contact": {},
+        "isSuppressed": false,
+        "removalQuota": {},
+        "id": "CONTACT_SUPPRESSION_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "contact_suppression_status": {
+      "contact_suppression_status_ref01": {
+        "contact": {},
+        "isSuppressed": false,
+        "removalQuota": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/contacts/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

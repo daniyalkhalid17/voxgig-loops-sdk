@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "event_pattern": {
+      "EVENT_PATTERN00": {
+        "eventName": "s28",
+        "eventProperties": [],
+        "id": "EVENT_PATTERN00",
+        "incomingWebhookPlatform": "s2b",
+        "event_name": "EVENT_NAME01"
+      },
+      "EVENT_PATTERN01": {
+        "eventName": "s50",
+        "eventProperties": [],
+        "id": "EVENT_PATTERN01",
+        "incomingWebhookPlatform": "s53",
+        "event_name": "EVENT_NAME01"
+      },
+      "EVENT_PATTERN02": {
+        "eventName": "s78",
+        "eventProperties": [],
+        "id": "EVENT_PATTERN02",
+        "incomingWebhookPlatform": "s7b",
+        "event_name": "EVENT_NAME01"
+      }
+    }
+  },
+  "new": {
+    "event_pattern": {
+      "event_pattern_ref01": {
+        "eventName": "sa0",
+        "eventProperties": [],
+        "incomingWebhookPlatform": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/event-patterns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/event-patterns/by-name/{eventName}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/event-patterns/{eventPatternId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  point: "warning"
+  note: "Points POST /v1/campaign-groups, POST /v1/transactional-groups and POST /v1/workflow-groups on entity=group op=create have the same selector (exist: none), so only POST /v1/campaign-groups is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "group"
+  op: "create"
+  points: [
+    "POST /v1/campaign-groups"
+    "POST /v1/transactional-groups"
+    "POST /v1/workflow-groups"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points GET /v1/campaign-groups, GET /v1/transactional-groups and GET /v1/workflow-groups on entity=group op=list have the same selector (exist: none), so only GET /v1/campaign-groups is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "group"
+  op: "list"
+  points: [
+    "GET /v1/campaign-groups"
+    "GET /v1/transactional-groups"
+    "GET /v1/workflow-groups"
+  ]
+
+}
+
+
+{
+  point: "warning"
+  note: "Points POST /v1/transactional-emails/{transactionalId} and POST /v1/transactional-emails/{transactionalId}/publish on entity=transactional_resource op=create have the same selector (exist: transactional_id), so only POST /v1/transactional-emails/{transactionalId} is ever chosen. An action or another entity in guide.aontu tells them apart."
+  entity: "transactional_resource"
+  op: "create"
+  points: [
+    "POST /v1/transactional-emails/{transactionalId}"
+    "POST /v1/transactional-emails/{transactionalId}/publish"
+  ]
+
+}

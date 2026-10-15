@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "campaign": {
+      "CAMPAIGN00": {
+        "audienceFilter": "s78",
+        "audienceSegmentId": "s79",
+        "campaignGroupId": "s7a",
+        "createdAt": "s7b",
+        "emailMessageId": "s7c",
+        "id": "CAMPAIGN00",
+        "mailingListId": "s7e",
+        "name": "s7f",
+        "scheduling": {},
+        "status": "s81",
+        "updatedAt": "s82",
+        "url": "s83"
+      },
+      "CAMPAIGN01": {
+        "audienceFilter": "sf0",
+        "audienceSegmentId": "sf1",
+        "campaignGroupId": "sf2",
+        "createdAt": "sf3",
+        "emailMessageId": "sf4",
+        "id": "CAMPAIGN01",
+        "mailingListId": "sf6",
+        "name": "sf7",
+        "scheduling": {},
+        "status": "sf9",
+        "updatedAt": "sfa",
+        "url": "sfb"
+      },
+      "CAMPAIGN02": {
+        "audienceFilter": "s168",
+        "audienceSegmentId": "s169",
+        "campaignGroupId": "s16a",
+        "createdAt": "s16b",
+        "emailMessageId": "s16c",
+        "id": "CAMPAIGN02",
+        "mailingListId": "s16e",
+        "name": "s16f",
+        "scheduling": {},
+        "status": "s171",
+        "updatedAt": "s172",
+        "url": "s173"
+      }
+    }
+  },
+  "new": {
+    "campaign": {
+      "campaign_ref01": {
+        "audienceFilter": "s1e0",
+        "audienceSegmentId": "s1e1",
+        "campaignGroupId": "s1e2",
+        "createdAt": "s1e3",
+        "emailMessageId": "s1e4",
+        "mailingListId": "s1e6",
+        "name": "s1e7",
+        "scheduling": {},
+        "status": "s1e9",
+        "updatedAt": "s1ea",
+        "url": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/campaigns/{campaignId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/campaigns": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/campaigns/{campaignId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

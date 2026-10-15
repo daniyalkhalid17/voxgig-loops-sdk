@@ -1,0 +1,430 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 36
+  metrics: count: path: 48
+  metrics: count: method: 72
+
+  entity: api_key: {
+    path: "/v1/api-key": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: audience_segment: {
+    path: "/v1/audience-segments": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "filter": *("`reqdata.filter`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/audience-segments/{audienceSegmentId}": {
+      rename: param: "audienceSegmentId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: campaign: {
+    path: "/v1/campaigns": {
+      op: create: method: *POST
+      op: create: transform: req: "audienceFilter": *("`reqdata.audience_filter`")|top
+      op: create: transform: req: "audienceSegmentId": *("`reqdata.audience_segment_id`")|top
+      op: create: transform: req: "campaignGroupId": *("`reqdata.campaign_group_id`")|top
+      op: create: transform: req: "mailingListId": *("`reqdata.mailing_list_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "scheduling": *("`reqdata.scheduling`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/campaigns/{campaignId}": {
+      rename: param: "campaignId": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "audienceFilter": *("`reqdata.audience_filter`")|top
+      op: create: transform: req: "audienceSegmentId": *("`reqdata.audience_segment_id`")|top
+      op: create: transform: req: "campaignGroupId": *("`reqdata.campaign_group_id`")|top
+      op: create: transform: req: "mailingListId": *("`reqdata.mailing_list_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "scheduling": *("`reqdata.scheduling`")|top
+      op: load: method: *GET
+    }
+  }
+
+  entity: change_workflow_mailing_list: {
+    path: "/v1/workflows/{workflowId}/mailing-list": {
+      rename: param: "workflowId": *"workflow_id"
+      op: create: method: *POST
+      op: create: transform: req: "dryRun": *("`reqdata.dry_run`")|top
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: create: transform: req: "mailingListId": *("`reqdata.mailing_list_id`")|top
+      op: create: transform: req: "queuedContactPolicy": *("`reqdata.queued_contact_policy`")|top
+    }
+  }
+
+  entity: complete: {
+    path: "/v1/uploads/{emailAssetId}/complete": {
+      rename: param: "emailAssetId": *"upload_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: component: {
+    path: "/v1/components": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/components/{componentId}": {
+      rename: param: "componentId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: configuration: {
+    path: "/v1/dedicated-sending-ips": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: contact: {
+    path: "/v1/contacts/find": {
+      action: "find": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: contact_delete: {
+    path: "/v1/contacts/delete": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: contact_property: {
+    path: "/v1/contacts/properties": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: contact_property_success: {
+    path: "/v1/contacts/properties": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: contact_success: {
+    path: "/v1/contacts/create": {
+      op: create: method: *POST
+    }
+    path: "/v1/contacts/update": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: contact_suppression_remove: {
+    path: "/v1/contacts/suppression": {
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.removalQuota`")|top
+    }
+  }
+
+  entity: contact_suppression_status: {
+    path: "/v1/contacts/suppression": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: create_upload: {
+    path: "/v1/uploads": {
+      op: create: method: *POST
+      op: create: transform: req: "contentLength": *("`reqdata.content_length`")|top
+      op: create: transform: req: "contentType": *("`reqdata.content_type`")|top
+    }
+  }
+
+  entity: create_workflow_node: {
+    path: "/v1/workflows/{workflowId}/nodes": {
+      rename: param: "workflowId": *"workflow_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: email_message: {
+    path: "/v1/email-messages/{emailMessageId}": {
+      rename: param: "emailMessageId": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "bccEmail": *("`reqdata.bcc_email`")|top
+      op: create: transform: req: "ccEmail": *("`reqdata.cc_email`")|top
+      op: create: transform: req: "contactPropertiesFallbacks": *("`reqdata.contact_properties_fallback`")|top
+      op: create: transform: req: "dataVariablesFallbacks": *("`reqdata.data_variables_fallback`")|top
+      op: create: transform: req: "emailFormat": *("`reqdata.email_format`")|top
+      op: create: transform: req: "eventPropertiesFallbacks": *("`reqdata.event_properties_fallback`")|top
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: create: transform: req: "fromEmail": *("`reqdata.from_email`")|top
+      op: create: transform: req: "fromName": *("`reqdata.from_name`")|top
+      op: create: transform: req: "languageCode": *("`reqdata.language_code`")|top
+      op: create: transform: req: "lmx": *("`reqdata.lmx`")|top
+      op: create: transform: req: "previewText": *("`reqdata.preview_text`")|top
+      op: create: transform: req: "replyToEmail": *("`reqdata.reply_to_email`")|top
+      op: create: transform: req: "subject": *("`reqdata.subject`")|top
+      op: load: method: *GET
+    }
+  }
+
+  entity: email_message_guardian: {
+    path: "/v1/email-messages/{emailMessageId}/guardian": {
+      rename: param: "emailMessageId": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: email_message_preview: {
+    path: "/v1/email-messages/{emailMessageId}/preview": {
+      rename: param: "emailMessageId": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "contactProperties": *("`reqdata.contact_property`")|top
+      op: create: transform: req: "dataVariables": *("`reqdata.data_variable`")|top
+      op: create: transform: req: "emails": *("`reqdata.email`")|top
+      op: create: transform: req: "eventProperties": *("`reqdata.event_property`")|top
+    }
+  }
+
+  entity: email_metric: {
+    path: "/v1/campaigns/{campaignId}/metrics": {
+      rename: param: "campaignId": *"campaign_id"
+      op: load: method: *GET
+    }
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}/metrics": {
+      rename: param: "nodeId": *"node_id"
+      rename: param: "workflowId": *"workflow_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: event_pattern: {
+    path: "/v1/event-patterns": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/event-patterns/by-name/{eventName}": {
+      rename: param: "eventName": *"event_name"
+      op: load: method: *GET
+    }
+    path: "/v1/event-patterns/{eventPatternId}": {
+      rename: param: "eventPatternId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: event_success: {
+    path: "/v1/events/send": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: group: {
+    path: "/v1/campaign-groups": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/campaign-groups/{campaignGroupId}": {
+      rename: param: "campaignGroupId": *"campaign_group_id"
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: load: method: *GET
+    }
+    path: "/v1/transactional-groups": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/transactional-groups/{transactionalGroupId}": {
+      rename: param: "transactionalGroupId": *"transactional_group_id"
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: load: method: *GET
+    }
+    path: "/v1/workflow-groups": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/workflow-groups/{workflowGroupId}": {
+      rename: param: "workflowGroupId": *"workflow_group_id"
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: load: method: *GET
+    }
+  }
+
+  entity: mailing_list: {
+    path: "/v1/lists": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: simplified_workflow: {
+    path: "/v1/workflows": {
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "mailingListId": *("`reqdata.mailing_list_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/workflows/{workflowId}": {
+      rename: param: "workflowId": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "description": *("`reqdata.description`")|top
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: load: method: *GET
+    }
+  }
+
+  entity: theme: {
+    path: "/v1/themes": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/themes/{themeId}": {
+      rename: param: "themeId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: transactional: {
+    path: "/v1/transactional": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: transactional_draft: {
+    path: "/v1/transactional-emails/{transactionalId}/draft": {
+      rename: param: "transactionalId": *"transactional_email_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: transactional_metric: {
+    path: "/v1/transactional-emails/{transactionalId}/metrics": {
+      rename: param: "transactionalId": *"transactional_email_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: transactional_resource: {
+    path: "/v1/transactional-emails": {
+      op: create: method: *POST
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "transactionalGroupId": *("`reqdata.transactional_group_id`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/transactional-emails/{transactionalId}": {
+      rename: param: "transactionalId": *"transactional_id"
+      op: create: method: *POST
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "transactionalGroupId": *("`reqdata.transactional_group_id`")|top
+      op: load: method: *GET
+    }
+    path: "/v1/transactional-emails/{transactionalId}/publish": {
+      rename: param: "transactionalId": *"transactional_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: update_component: {
+    path: "/v1/components/{componentId}": {
+      rename: param: "componentId": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: update_theme: {
+    path: "/v1/themes/{themeId}": {
+      rename: param: "themeId": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: update_workflow_node: {
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}": {
+      rename: param: "nodeId": *"id"
+      rename: param: "workflowId": *"workflow_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.workflow`")|top
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: create: transform: req: "payload": *("`reqdata.payload`")|top
+    }
+  }
+
+  entity: workflow: {
+    path: "/v1/workflows/{workflowId}": {
+      rename: param: "workflowId": *"id"
+      op: remove: method: *DELETE
+      op: remove: transform: req: "confirmDelete": *("`reqdata.confirm_delete`")|top
+      op: remove: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+    }
+  }
+
+  entity: workflow_node: {
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}": {
+      rename: param: "nodeId": *"id"
+      rename: param: "workflowId": *"workflow_id"
+      op: remove: method: *DELETE
+      op: remove: transform: req: "dryRun": *("`reqdata.dry_run`")|top
+      op: remove: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: remove: transform: req: "queuedContactPolicy": *("`reqdata.queued_contact_policy`")|top
+    }
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}/recursive": {
+      rename: param: "nodeId": *"node_id"
+      rename: param: "workflowId": *"workflow_id"
+      op: remove: method: *DELETE
+      op: remove: transform: req: "dryRun": *("`reqdata.dry_run`")|top
+      op: remove: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: remove: transform: req: "queuedContactPolicy": *("`reqdata.queued_contact_policy`")|top
+    }
+  }
+
+  entity: workflow_node_with_revision: {
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}": {
+      rename: param: "nodeId": *"node_id"
+      rename: param: "workflowId": *"workflow_id"
+      op: load: method: *GET
+    }
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}/add-branch": {
+      action: "add_branch": {}
+      rename: param: "nodeId": *"node_id"
+      rename: param: "workflowId": *"workflow_id"
+      op: create: method: *POST
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+    }
+    path: "/v1/workflows/{workflowId}/nodes/{nodeId}/reroute": {
+      action: "reroute": {}
+      rename: param: "nodeId": *"node_id"
+      rename: param: "workflowId": *"workflow_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.workflow`")|top
+      op: create: transform: req: "expectedRevisionId": *("`reqdata.expected_revision_id`")|top
+      op: create: transform: req: "newTargetNodeId": *("`reqdata.new_target_node_id`")|top
+    }
+  }
+
+}

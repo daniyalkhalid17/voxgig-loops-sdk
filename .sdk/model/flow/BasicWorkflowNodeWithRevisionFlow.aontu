@@ -1,0 +1,46 @@
+# BasicWorkflowNodeWithRevisionFlow
+
+main: kit: flow: BasicWorkflowNodeWithRevisionFlow:
+{
+  entity: "workflow_node_with_revision",
+  kind: "basic",
+  name: "BasicWorkflowNodeWithRevisionFlow",
+  step: [
+    {
+      i: {
+        ref: "workflow_node_with_revision_ref01"
+      }
+
+      m: {
+        node_id: "node01",
+        workflow_id: "workflow01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "workflow_node_with_revision_ref01",
+        srcdatavar: "workflow_node_with_revision_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "workflow_node_with_revision01",
+        workflow_id: "workflow01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workflow_node_with_revision_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkflowNodeWithRevisionFlow"
+}

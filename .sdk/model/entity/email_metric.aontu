@@ -1,0 +1,193 @@
+# Entity: email_metric
+
+main: kit: entity: email_metric: {
+
+  alias: field: {}
+
+  fields: {
+    clicks: {
+      h: "Clicks"
+      n: "clicks"
+      r: true
+      sh: "Number of sends where at least one link was clicked."
+      t: "`$INTEGER`"
+    }
+    hardBounces: {
+      h: "Hard Bounces"
+      n: "hardBounces"
+      r: true
+      sh: "Number of sends that hard bounced."
+      t: "`$INTEGER`"
+    }
+    opens: {
+      h: "Opens"
+      n: "opens"
+      r: true
+      sh: "Number of sends that were opened at least once."
+      t: "`$INTEGER`"
+    }
+    sends: {
+      h: "Sends"
+      n: "sends"
+      r: true
+      sh: "Number of sends."
+      t: "`$INTEGER`"
+    }
+    softBounces: {
+      h: "Soft Bounces"
+      n: "softBounces"
+      r: true
+      sh: "Number of sends that soft bounced."
+      t: "`$INTEGER`"
+    }
+    spamReports: {
+      h: "Spam Reports"
+      n: "spamReports"
+      r: true
+      sh: "Number of sends reported as spam."
+      t: "`$INTEGER`"
+    }
+    unsubscribes: {
+      h: "Unsubscribes"
+      n: "unsubscribes"
+      r: true
+      sh: "Number of unsubscribes."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "email_metric"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/workflows/{workflowId}/nodes/{nodeId}/metrics"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "node_id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}/metrics"
+          q: {
+            exist: [
+              "node_id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "node_id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "node_id"
+            }
+            {
+              lit: "metrics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/campaigns/{campaignId}/metrics"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "campaign_id"
+                or: "campaignId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/campaigns/{campaignId}/metrics"
+          q: {
+            exist: [
+              "campaign_id"
+            ]
+          }
+          r: {
+            param: {
+              campaignId: "campaign_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "campaign_id"
+            }
+            {
+              lit: "metrics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.campaign")]
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

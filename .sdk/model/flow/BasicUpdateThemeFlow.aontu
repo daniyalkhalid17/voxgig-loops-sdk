@@ -1,0 +1,22 @@
+# BasicUpdateThemeFlow
+
+main: kit: flow: BasicUpdateThemeFlow:
+{
+  entity: "update_theme",
+  kind: "basic",
+  name: "BasicUpdateThemeFlow",
+  step: [
+    {
+      i: {
+        ref: "update_theme_ref01"
+      }
+
+      m: {
+        theme_id: "theme01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUpdateThemeFlow"
+}

@@ -1,0 +1,44 @@
+# BasicEventPatternFlow
+
+main: kit: flow: BasicEventPatternFlow:
+{
+  entity: "event_pattern",
+  kind: "basic",
+  name: "BasicEventPatternFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "event_pattern_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "event_pattern_ref01",
+        srcdatavar: "event_pattern_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "event_pattern01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-event_pattern_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEventPatternFlow"
+}

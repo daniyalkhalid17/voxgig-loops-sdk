@@ -1,0 +1,185 @@
+# Entity: workflow_node
+
+main: kit: entity: workflow_node: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workflow_node"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          bf: [
+            "dryRun"
+            "expectedRevisionId"
+            "queuedContactPolicy"
+          ]
+          co: {
+            id: "DELETE /v1/workflows/{workflowId}/nodes/{nodeId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}"
+          q: {
+            exist: [
+              "id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              dryRun: "`reqdata.dry_run`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              queuedContactPolicy: "`reqdata.queued_contact_policy`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "dryRun"
+            "expectedRevisionId"
+            "queuedContactPolicy"
+          ]
+          co: {
+            id: "DELETE /v1/workflows/{workflowId}/nodes/{nodeId}/recursive"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "node_id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}/recursive"
+          q: {
+            exist: [
+              "node_id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "node_id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "node_id"
+            }
+            {
+              lit: "recursive"
+            }
+          ]
+          t: {
+            req: {
+              dryRun: "`reqdata.dry_run`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              queuedContactPolicy: "`reqdata.queued_contact_policy`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workflow")]
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

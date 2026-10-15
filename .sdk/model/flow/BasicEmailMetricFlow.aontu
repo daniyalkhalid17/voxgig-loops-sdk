@@ -1,0 +1,32 @@
+# BasicEmailMetricFlow
+
+main: kit: flow: BasicEmailMetricFlow:
+{
+  entity: "email_metric",
+  kind: "basic",
+  name: "BasicEmailMetricFlow",
+  step: [
+    {
+      i: {
+        ref: "email_metric_ref01",
+        srcdatavar: "email_metric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_metric01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailMetricFlow"
+}

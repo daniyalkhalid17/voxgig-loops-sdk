@@ -1,0 +1,84 @@
+# Entity: workflow
+
+main: kit: entity: workflow: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "workflow"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          bf: [
+            "confirmDelete"
+            "expectedRevisionId"
+          ]
+          co: {
+            id: "DELETE /v1/workflows/{workflowId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v1/workflows/{workflowId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workflowId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              confirmDelete: "`reqdata.confirm_delete`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

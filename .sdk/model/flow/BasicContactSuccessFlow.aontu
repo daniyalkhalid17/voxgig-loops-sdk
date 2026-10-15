@@ -1,0 +1,37 @@
+# BasicContactSuccessFlow
+
+main: kit: flow: BasicContactSuccessFlow:
+{
+  entity: "contact_success",
+  kind: "basic",
+  name: "BasicContactSuccessFlow",
+  step: [
+    {
+      i: {
+        ref: "contact_success_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "contact_success_ref01",
+        srcdatavar: "contact_success_ref01_data",
+        suffix: "_up0",
+        textfield: "email"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-contact_success_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContactSuccessFlow"
+}

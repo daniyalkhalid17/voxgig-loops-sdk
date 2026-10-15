@@ -1,0 +1,44 @@
+# BasicEmailMessageFlow
+
+main: kit: flow: BasicEmailMessageFlow:
+{
+  entity: "email_message",
+  kind: "basic",
+  name: "BasicEmailMessageFlow",
+  step: [
+    {
+      i: {
+        ref: "email_message_ref01"
+      }
+
+      m: {
+        email_message_id: "email_message01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "email_message_ref01",
+        srcdatavar: "email_message_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "email_message01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-email_message_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailMessageFlow"
+}

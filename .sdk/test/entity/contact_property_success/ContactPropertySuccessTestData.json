@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "contact_property_success": {
+      "CONTACT_PROPERTY_SUCCESS00": {
+        "name": "s1e",
+        "success": false,
+        "type": "s20",
+        "id": "CONTACT_PROPERTY_SUCCESS00"
+      },
+      "CONTACT_PROPERTY_SUCCESS01": {
+        "name": "s3c",
+        "success": false,
+        "type": "s3e",
+        "id": "CONTACT_PROPERTY_SUCCESS01"
+      },
+      "CONTACT_PROPERTY_SUCCESS02": {
+        "name": "s5a",
+        "success": false,
+        "type": "s5c",
+        "id": "CONTACT_PROPERTY_SUCCESS02"
+      }
+    }
+  },
+  "new": {
+    "contact_property_success": {
+      "contact_property_success_ref01": {
+        "name": "s78",
+        "success": false,
+        "type": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/contacts/properties": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

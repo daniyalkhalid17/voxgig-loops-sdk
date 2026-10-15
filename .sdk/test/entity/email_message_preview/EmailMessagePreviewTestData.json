@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "email_message_preview": {
+      "EMAIL_MESSAGE_PREVIEW00": {
+        "contactProperties": {},
+        "dataVariables": {},
+        "emails": [],
+        "eventProperties": {},
+        "id": "EMAIL_MESSAGE_PREVIEW00"
+      },
+      "EMAIL_MESSAGE_PREVIEW01": {
+        "contactProperties": {},
+        "dataVariables": {},
+        "emails": [],
+        "eventProperties": {},
+        "id": "EMAIL_MESSAGE_PREVIEW01"
+      },
+      "EMAIL_MESSAGE_PREVIEW02": {
+        "contactProperties": {},
+        "dataVariables": {},
+        "emails": [],
+        "eventProperties": {},
+        "id": "EMAIL_MESSAGE_PREVIEW02"
+      }
+    }
+  },
+  "new": {
+    "email_message_preview": {
+      "email_message_preview_ref01": {
+        "contactProperties": {},
+        "dataVariables": {},
+        "emails": [],
+        "eventProperties": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/email-messages/{emailMessageId}/preview": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# BasicTransactionalMetricFlow
+
+main: kit: flow: BasicTransactionalMetricFlow:
+{
+  entity: "transactional_metric",
+  kind: "basic",
+  name: "BasicTransactionalMetricFlow",
+  step: [
+    {
+      i: {
+        ref: "transactional_metric_ref01",
+        srcdatavar: "transactional_metric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "transactional_metric01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transactional_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTransactionalMetricFlow"
+}

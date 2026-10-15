@@ -1,0 +1,87 @@
+# Entity: contact_suppression_status
+
+main: kit: entity: contact_suppression_status: {
+
+  alias: field: {}
+
+  fields: {
+    contact: {
+      h: "Contact"
+      n: "contact"
+      r: true
+      t: "`$OBJECT`"
+    }
+    isSuppressed: {
+      h: "Is Suppressed"
+      n: "isSuppressed"
+      r: true
+      sh: "Whether the contact is suppressed."
+      t: "`$BOOLEAN`"
+    }
+    removalQuota: {
+      h: "Removal Quota"
+      n: "removalQuota"
+      r: true
+      sh: "The removal quota for the contact."
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "contact_suppression_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/contacts/suppression"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "user_id"
+                or: "userId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/contacts/suppression"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "suppression"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

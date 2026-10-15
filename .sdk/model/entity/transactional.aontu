@@ -1,0 +1,185 @@
+# Entity: transactional
+
+main: kit: entity: transactional: {
+
+  alias: field: {}
+
+  fields: {
+    addToAudience: {
+      h: "Add To Audience"
+      n: "addToAudience"
+      r: false
+      sh: "If `true`, a contact will be created in your audience using the `email` value (if a matching contact doesn't already exist)."
+      t: "`$BOOLEAN`"
+    }
+    attachments: {
+      h: "Attachments"
+      n: "attachments"
+      r: false
+      sh: "A list containing file objects to be sent along with an email message."
+      t: "`$ARRAY`"
+    }
+    dataVariables: {
+      h: "Data Variables"
+      n: "dataVariables"
+      op: {
+        list: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      r: false
+      sh: "An object containing data as defined by the data variables added to the transactional email template."
+      t: "`$OBJECT`"
+    }
+    email: {
+      h: "Email"
+      n: "email"
+      r: true
+      sh: "The recipient's email address."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the transactional email."
+      t: "`$STRING`"
+    }
+    lastUpdated: {
+      h: "Last Updated"
+      n: "lastUpdated"
+      r: true
+      sh: "The date and time the transactional email was last updated in ISO 8601 format."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the transactional email."
+      t: "`$STRING`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    transactionalId: {
+      h: "Transactional Id"
+      n: "transactionalId"
+      r: true
+      sh: "The ID of the transactional email to send."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "transactional"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "addToAudience"
+            "attachments"
+            "dataVariables"
+            "email"
+            "transactionalId"
+          ]
+          co: {
+            id: "POST /v1/transactional"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "idempotency_key"
+                or: "Idempotency-Key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/transactional"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/transactional"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/transactional"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

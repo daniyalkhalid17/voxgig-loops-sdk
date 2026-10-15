@@ -1,0 +1,28 @@
+# BasicContactSuppressionStatusFlow
+
+main: kit: flow: BasicContactSuppressionStatusFlow:
+{
+  entity: "contact_suppression_status",
+  kind: "basic",
+  name: "BasicContactSuppressionStatusFlow",
+  step: [
+    {
+      i: {
+        ref: "contact_suppression_status_ref01",
+        srcdatavar: "contact_suppression_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-contact_suppression_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContactSuppressionStatusFlow"
+}

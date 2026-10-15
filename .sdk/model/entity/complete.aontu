@@ -1,0 +1,87 @@
+# Entity: complete
+
+main: kit: entity: complete: {
+
+  alias: field: {}
+
+  fields: {
+    emailAssetId: {
+      h: "Email Asset Id"
+      n: "emailAssetId"
+      r: true
+      sh: "The ID of the created asset."
+      t: "`$STRING`"
+    }
+    finalUrl: {
+      h: "Final Url"
+      n: "finalUrl"
+      r: true
+      sh: "The public URL of the uploaded asset."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "complete"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v1/uploads/{emailAssetId}/complete"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "upload_id"
+                or: "emailAssetId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/uploads/{emailAssetId}/complete"
+          q: {
+            exist: [
+              "upload_id"
+            ]
+          }
+          r: {
+            param: {
+              emailAssetId: "upload_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+            {
+              var: "upload_id"
+            }
+            {
+              lit: "complete"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

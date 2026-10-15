@@ -1,0 +1,18 @@
+# BasicEventSuccessFlow
+
+main: kit: flow: BasicEventSuccessFlow:
+{
+  entity: "event_success",
+  kind: "basic",
+  name: "BasicEventSuccessFlow",
+  step: [
+    {
+      i: {
+        ref: "event_success_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicEventSuccessFlow"
+}

@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "transactional": {
+      "TRANSACTIONAL00": {
+        "addToAudience": true,
+        "attachments": [],
+        "dataVariables": {},
+        "email": "s5d",
+        "id": "TRANSACTIONAL00",
+        "lastUpdated": "s5f",
+        "name": "s60",
+        "success": false,
+        "transactionalId": "s62"
+      },
+      "TRANSACTIONAL01": {
+        "addToAudience": true,
+        "attachments": [],
+        "dataVariables": {},
+        "email": "sb7",
+        "id": "TRANSACTIONAL01",
+        "lastUpdated": "sb9",
+        "name": "sba",
+        "success": false,
+        "transactionalId": "sbc"
+      },
+      "TRANSACTIONAL02": {
+        "addToAudience": true,
+        "attachments": [],
+        "dataVariables": {},
+        "email": "s111",
+        "id": "TRANSACTIONAL02",
+        "lastUpdated": "s113",
+        "name": "s114",
+        "success": false,
+        "transactionalId": "s116"
+      }
+    }
+  },
+  "new": {
+    "transactional": {
+      "transactional_ref01": {
+        "addToAudience": true,
+        "attachments": [],
+        "dataVariables": {},
+        "email": "s16b",
+        "lastUpdated": "s16d",
+        "name": "s16e",
+        "success": false,
+        "transactionalId": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/transactional": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/transactional": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

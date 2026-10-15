@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "create_upload": {
+      "CREATE_UPLOAD00": {
+        "contentLength": 40,
+        "contentType": "s29",
+        "emailAssetId": "s2a",
+        "presignedUrl": "s2b",
+        "id": "CREATE_UPLOAD00"
+      },
+      "CREATE_UPLOAD01": {
+        "contentLength": 80,
+        "contentType": "s51",
+        "emailAssetId": "s52",
+        "presignedUrl": "s53",
+        "id": "CREATE_UPLOAD01"
+      },
+      "CREATE_UPLOAD02": {
+        "contentLength": 120,
+        "contentType": "s79",
+        "emailAssetId": "s7a",
+        "presignedUrl": "s7b",
+        "id": "CREATE_UPLOAD02"
+      }
+    }
+  },
+  "new": {
+    "create_upload": {
+      "create_upload_ref01": {
+        "contentLength": 160,
+        "contentType": "sa1",
+        "emailAssetId": "sa2",
+        "presignedUrl": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

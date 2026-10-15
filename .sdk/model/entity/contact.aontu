@@ -1,0 +1,169 @@
+# Entity: contact
+
+main: kit: entity: contact: {
+
+  alias: field: {}
+
+  fields: {
+    email: {
+      h: "Email"
+      n: "email"
+      r: false
+      sh: "The contact's email address."
+      t: "`$STRING`"
+    }
+    firstName: {
+      h: "First Name"
+      n: "firstName"
+      r: false
+      sh: "The contact's first name."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The contact's Loops ID."
+      t: "`$STRING`"
+    }
+    lastName: {
+      h: "Last Name"
+      n: "lastName"
+      r: false
+      sh: "The contact's last name."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    mailingLists: {
+      h: "Mailing Lists"
+      n: "mailingLists"
+      r: false
+      sh: "Mailing lists the contact is subscribed to, represented by key-value pairs of mailing list IDs and `true`."
+      t: "`$OBJECT`"
+    }
+    optInStatus: {
+      h: "Opt In Status"
+      n: "optInStatus"
+      r: false
+      sh: "Double opt-in status."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "The source the contact was created from."
+      t: "`$STRING`"
+    }
+    subscribed: {
+      h: "Subscribed"
+      n: "subscribed"
+      r: false
+      sh: "Whether the contact will receive campaign and workflow emails."
+      t: "`$BOOLEAN`"
+    }
+    userGroup: {
+      h: "User Group"
+      n: "userGroup"
+      r: false
+      sh: "The contact's user group."
+      t: "`$STRING`"
+    }
+    userId: {
+      h: "User Id"
+      n: "userId"
+      r: false
+      sh: "The contact's unique user ID."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "contact"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/contacts/find"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "user_id"
+                or: "userId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/contacts/find"
+          q: {
+            "$action": "find"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "find"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

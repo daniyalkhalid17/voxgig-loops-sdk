@@ -1,0 +1,22 @@
+# BasicUpdateComponentFlow
+
+main: kit: flow: BasicUpdateComponentFlow:
+{
+  entity: "update_component",
+  kind: "basic",
+  name: "BasicUpdateComponentFlow",
+  step: [
+    {
+      i: {
+        ref: "update_component_ref01"
+      }
+
+      m: {
+        component_id: "component01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUpdateComponentFlow"
+}

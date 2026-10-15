@@ -1,0 +1,22 @@
+# BasicCompleteFlow
+
+main: kit: flow: BasicCompleteFlow:
+{
+  entity: "complete",
+  kind: "basic",
+  name: "BasicCompleteFlow",
+  step: [
+    {
+      i: {
+        ref: "complete_ref01"
+      }
+
+      m: {
+        upload_id: "upload01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCompleteFlow"
+}

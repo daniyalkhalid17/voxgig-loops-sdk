@@ -1,0 +1,108 @@
+{
+  "existing": {
+    "group": {
+      "GROUP00": {
+        "createdAt": "s32",
+        "description": "s33",
+        "id": "GROUP00",
+        "name": "s35",
+        "updatedAt": "s36",
+        "campaign_group_id": "CAMPAIGN_GROUP01",
+        "transactional_group_id": "TRANSACTIONAL_GROUP01",
+        "workflow_group_id": "WORKFLOW_GROUP01"
+      },
+      "GROUP01": {
+        "createdAt": "s64",
+        "description": "s65",
+        "id": "GROUP01",
+        "name": "s67",
+        "updatedAt": "s68",
+        "campaign_group_id": "CAMPAIGN_GROUP01",
+        "transactional_group_id": "TRANSACTIONAL_GROUP01",
+        "workflow_group_id": "WORKFLOW_GROUP01"
+      },
+      "GROUP02": {
+        "createdAt": "s96",
+        "description": "s97",
+        "id": "GROUP02",
+        "name": "s99",
+        "updatedAt": "s9a",
+        "campaign_group_id": "CAMPAIGN_GROUP01",
+        "transactional_group_id": "TRANSACTIONAL_GROUP01",
+        "workflow_group_id": "WORKFLOW_GROUP01"
+      }
+    }
+  },
+  "new": {
+    "group": {
+      "group_ref01": {
+        "createdAt": "sc8",
+        "description": "sc9",
+        "name": "scb",
+        "updatedAt": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/campaign-groups/{campaignGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/transactional-groups/{transactionalGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/workflow-groups/{workflowGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/campaign-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/transactional-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/workflow-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/campaign-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/transactional-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/workflow-groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/campaign-groups/{campaignGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/transactional-groups/{transactionalGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/workflow-groups/{workflowGroupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

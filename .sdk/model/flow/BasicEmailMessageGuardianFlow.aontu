@@ -1,0 +1,26 @@
+# BasicEmailMessageGuardianFlow
+
+main: kit: flow: BasicEmailMessageGuardianFlow:
+{
+  entity: "email_message_guardian",
+  kind: "basic",
+  name: "BasicEmailMessageGuardianFlow",
+  step: [
+    {
+      m: {
+        email_message_id: "email_message01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "email_message_guardian_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmailMessageGuardianFlow"
+}

@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "event_success": {
+      "EVENT_SUCCESS00": {
+        "email": "s3c",
+        "eventName": "s3d",
+        "eventProperties": {},
+        "mailingLists": {},
+        "success": true,
+        "userId": "s41",
+        "id": "EVENT_SUCCESS00"
+      },
+      "EVENT_SUCCESS01": {
+        "email": "s78",
+        "eventName": "s79",
+        "eventProperties": {},
+        "mailingLists": {},
+        "success": true,
+        "userId": "s7d",
+        "id": "EVENT_SUCCESS01"
+      },
+      "EVENT_SUCCESS02": {
+        "email": "sb4",
+        "eventName": "sb5",
+        "eventProperties": {},
+        "mailingLists": {},
+        "success": true,
+        "userId": "sb9",
+        "id": "EVENT_SUCCESS02"
+      }
+    }
+  },
+  "new": {
+    "event_success": {
+      "event_success_ref01": {
+        "email": "sf0",
+        "eventName": "sf1",
+        "eventProperties": {},
+        "mailingLists": {},
+        "success": true,
+        "userId": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/events/send": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

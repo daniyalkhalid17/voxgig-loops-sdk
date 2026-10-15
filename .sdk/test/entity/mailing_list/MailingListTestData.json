@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "mailing_list": {
+      "MAILING_LIST00": {
+        "description": "s28",
+        "id": "MAILING_LIST00",
+        "isPublic": true,
+        "name": "s2b"
+      },
+      "MAILING_LIST01": {
+        "description": "s50",
+        "id": "MAILING_LIST01",
+        "isPublic": true,
+        "name": "s53"
+      },
+      "MAILING_LIST02": {
+        "description": "s78",
+        "id": "MAILING_LIST02",
+        "isPublic": true,
+        "name": "s7b"
+      }
+    }
+  },
+  "new": {
+    "mailing_list": {
+      "mailing_list_ref01": {
+        "description": "sa0",
+        "isPublic": true,
+        "name": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/lists": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

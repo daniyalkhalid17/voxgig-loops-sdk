@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "complete": {
+      "COMPLETE00": {
+        "emailAssetId": "s14",
+        "finalUrl": "s15",
+        "upload_id": "UPLOAD01",
+        "id": "COMPLETE00"
+      },
+      "COMPLETE01": {
+        "emailAssetId": "s28",
+        "finalUrl": "s29",
+        "upload_id": "UPLOAD01",
+        "id": "COMPLETE01"
+      },
+      "COMPLETE02": {
+        "emailAssetId": "s3c",
+        "finalUrl": "s3d",
+        "upload_id": "UPLOAD01",
+        "id": "COMPLETE02"
+      }
+    }
+  },
+  "new": {
+    "complete": {
+      "complete_ref01": {
+        "emailAssetId": "s50",
+        "finalUrl": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/uploads/{emailAssetId}/complete": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

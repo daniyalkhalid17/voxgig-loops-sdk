@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "contact_property": {
+      "CONTACT_PROPERTY00": {
+        "key": "s1e",
+        "label": "s1f",
+        "type": "s20"
+      },
+      "CONTACT_PROPERTY01": {
+        "key": "s3c",
+        "label": "s3d",
+        "type": "s3e"
+      },
+      "CONTACT_PROPERTY02": {
+        "key": "s5a",
+        "label": "s5b",
+        "type": "s5c"
+      }
+    }
+  },
+  "new": {
+    "contact_property": {
+      "contact_property_ref01": {
+        "key": "s78",
+        "label": "s79",
+        "type": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/contacts/properties": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

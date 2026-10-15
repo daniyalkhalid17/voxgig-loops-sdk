@@ -1,0 +1,18 @@
+# BasicCreateUploadFlow
+
+main: kit: flow: BasicCreateUploadFlow:
+{
+  entity: "create_upload",
+  kind: "basic",
+  name: "BasicCreateUploadFlow",
+  step: [
+    {
+      i: {
+        ref: "create_upload_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreateUploadFlow"
+}

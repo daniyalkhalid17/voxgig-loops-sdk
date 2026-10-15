@@ -1,0 +1,348 @@
+# Entity: email_message
+
+main: kit: entity: email_message: {
+
+  alias: field: {}
+
+  fields: {
+    bccEmail: {
+      h: "Bcc Email"
+      n: "bccEmail"
+      r: false
+      sh: "The email BCC address."
+      t: "`$STRING`"
+    }
+    campaignId: {
+      h: "Campaign Id"
+      n: "campaignId"
+      r: false
+      sh: "The campaign this email message belongs to."
+      t: "`$STRING`"
+    }
+    ccEmail: {
+      h: "Cc Email"
+      n: "ccEmail"
+      r: false
+      sh: "The email CC address."
+      t: "`$STRING`"
+    }
+    contactPropertiesFallbacks: {
+      h: "Contact Properties Fallbacks"
+      n: "contactPropertiesFallbacks"
+      r: false
+      sh: "Fallback values for contact properties."
+      t: "`$OBJECT`"
+    }
+    contentRevisionId: {
+      h: "Content Revision Id"
+      n: "contentRevisionId"
+      r: true
+      sh: "The current content revision."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    dataVariablesFallbacks: {
+      h: "Data Variables Fallbacks"
+      n: "dataVariablesFallbacks"
+      r: false
+      sh: "Fallback values for data variables."
+      t: "`$OBJECT`"
+    }
+    emailFormat: {
+      h: "Email Format"
+      n: "emailFormat"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The rendering format of the email."
+      t: "`$STRING`"
+    }
+    eventPropertiesFallbacks: {
+      h: "Event Properties Fallbacks"
+      n: "eventPropertiesFallbacks"
+      r: false
+      sh: "Fallback values for event properties."
+      t: "`$OBJECT`"
+    }
+    expectedRevisionId: {
+      h: "Expected Revision Id"
+      n: "expectedRevisionId"
+      r: false
+      sh: "The `contentRevisionId` you last fetched, or the `emailMessageContentRevisionId` you received when creating the campaign."
+      t: "`$STRING`"
+    }
+    fromEmail: {
+      h: "From Email"
+      n: "fromEmail"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email sender email address, without the team's sending domain."
+      t: "`$STRING`"
+    }
+    fromName: {
+      h: "From Name"
+      n: "fromName"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email sender name."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the email message."
+      t: "`$STRING`"
+    }
+    languageCode: {
+      h: "Language Code"
+      n: "languageCode"
+      r: false
+      sh: "ISO 639-1 language code for the email, e.g."
+      t: "`$STRING`"
+    }
+    lmx: {
+      h: "Lmx"
+      n: "lmx"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email body serialized as LMX."
+      t: "`$STRING`"
+    }
+    previewText: {
+      h: "Preview Text"
+      n: "previewText"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email preview text."
+      t: "`$STRING`"
+    }
+    replyToEmail: {
+      h: "Reply To Email"
+      n: "replyToEmail"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email reply-to address."
+      t: "`$STRING`"
+    }
+    subject: {
+      h: "Subject"
+      n: "subject"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The email subject."
+      t: "`$STRING`"
+    }
+    transactionalId: {
+      h: "Transactional Id"
+      n: "transactionalId"
+      r: false
+      sh: "The transactional email this email message belongs to."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      t: "`$STRING`"
+    }
+    warnings: {
+      h: "Warnings"
+      n: "warnings"
+      r: false
+      sh: "Non-fatal issues raised while compiling the submitted LMX."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "email_message"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "bccEmail"
+            "ccEmail"
+            "contactPropertiesFallbacks"
+            "dataVariablesFallbacks"
+            "emailFormat"
+            "eventPropertiesFallbacks"
+            "expectedRevisionId"
+            "fromEmail"
+            "fromName"
+            "languageCode"
+            "lmx"
+            "previewText"
+            "replyToEmail"
+            "subject"
+          ]
+          co: {
+            id: "POST /v1/email-messages/{emailMessageId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "emailMessageId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/email-messages/{emailMessageId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              emailMessageId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "email-messages"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              bccEmail: "`reqdata.bcc_email`"
+              ccEmail: "`reqdata.cc_email`"
+              contactPropertiesFallbacks: "`reqdata.contact_properties_fallback`"
+              dataVariablesFallbacks: "`reqdata.data_variables_fallback`"
+              emailFormat: "`reqdata.email_format`"
+              eventPropertiesFallbacks: "`reqdata.event_properties_fallback`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              fromEmail: "`reqdata.from_email`"
+              fromName: "`reqdata.from_name`"
+              languageCode: "`reqdata.language_code`"
+              lmx: "`reqdata.lmx`"
+              previewText: "`reqdata.preview_text`"
+              replyToEmail: "`reqdata.reply_to_email`"
+              subject: "`reqdata.subject`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/email-messages/{emailMessageId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "emailMessageId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/email-messages/{emailMessageId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              emailMessageId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "email-messages"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

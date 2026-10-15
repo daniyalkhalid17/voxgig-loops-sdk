@@ -1,0 +1,209 @@
+# Entity: event_pattern
+
+main: kit: entity: event_pattern: {
+
+  alias: field: {}
+
+  fields: {
+    eventName: {
+      h: "Event Name"
+      n: "eventName"
+      r: true
+      sh: "The name of the event pattern."
+      t: "`$STRING`"
+    }
+    eventProperties: {
+      h: "Event Properties"
+      n: "eventProperties"
+      r: true
+      sh: "The properties of the event pattern, which can be used in emails."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the event pattern."
+      t: "`$STRING`"
+    }
+    incomingWebhookPlatform: {
+      h: "Incoming Webhook Platform"
+      n: "incomingWebhookPlatform"
+      r: true
+      sh: "The platform that sent this event pattern, if the event pattern is from an incoming webhook."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "event_pattern"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/event-patterns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/event-patterns"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "event-patterns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/event-patterns/by-name/{eventName}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "event_name"
+                or: "eventName"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/event-patterns/by-name/{eventName}"
+          q: {
+            exist: [
+              "event_name"
+            ]
+          }
+          r: {
+            param: {
+              eventName: "event_name"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "event-patterns"
+            }
+            {
+              lit: "by-name"
+            }
+            {
+              var: "event_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /v1/event-patterns/{eventPatternId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "eventPatternId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/event-patterns/{eventPatternId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              eventPatternId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "event-patterns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

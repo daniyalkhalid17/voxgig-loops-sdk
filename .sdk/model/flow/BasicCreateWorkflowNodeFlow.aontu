@@ -1,0 +1,22 @@
+# BasicCreateWorkflowNodeFlow
+
+main: kit: flow: BasicCreateWorkflowNodeFlow:
+{
+  entity: "create_workflow_node",
+  kind: "basic",
+  name: "BasicCreateWorkflowNodeFlow",
+  step: [
+    {
+      i: {
+        ref: "create_workflow_node_ref01"
+      }
+
+      m: {
+        workflow_id: "workflow01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreateWorkflowNodeFlow"
+}

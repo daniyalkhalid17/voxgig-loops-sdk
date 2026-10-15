@@ -1,0 +1,73 @@
+# Entity: contact_property_success
+
+main: kit: entity: contact_property_success: {
+
+  alias: field: {}
+
+  fields: {
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the property."
+      t: "`$STRING`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "The type of property."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "contact_property_success"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "name"
+            "type"
+          ]
+          co: {
+            id: "POST /v1/contacts/properties"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/contacts/properties"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "properties"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

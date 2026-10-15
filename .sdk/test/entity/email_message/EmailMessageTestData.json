@@ -1,0 +1,109 @@
+{
+  "existing": {
+    "email_message": {
+      "EMAIL_MESSAGE00": {
+        "bccEmail": "sc8",
+        "campaignId": "sc9",
+        "ccEmail": "sca",
+        "contactPropertiesFallbacks": {},
+        "contentRevisionId": "scc",
+        "dataVariablesFallbacks": {},
+        "emailFormat": "sce",
+        "eventPropertiesFallbacks": {},
+        "expectedRevisionId": "sd0",
+        "fromEmail": "sd1",
+        "fromName": "sd2",
+        "id": "EMAIL_MESSAGE00",
+        "languageCode": "sd4",
+        "lmx": "sd5",
+        "previewText": "sd6",
+        "replyToEmail": "sd7",
+        "subject": "sd8",
+        "transactionalId": "sd9",
+        "updatedAt": "sda",
+        "warnings": []
+      },
+      "EMAIL_MESSAGE01": {
+        "bccEmail": "s190",
+        "campaignId": "s191",
+        "ccEmail": "s192",
+        "contactPropertiesFallbacks": {},
+        "contentRevisionId": "s194",
+        "dataVariablesFallbacks": {},
+        "emailFormat": "s196",
+        "eventPropertiesFallbacks": {},
+        "expectedRevisionId": "s198",
+        "fromEmail": "s199",
+        "fromName": "s19a",
+        "id": "EMAIL_MESSAGE01",
+        "languageCode": "s19c",
+        "lmx": "s19d",
+        "previewText": "s19e",
+        "replyToEmail": "s19f",
+        "subject": "s1a0",
+        "transactionalId": "s1a1",
+        "updatedAt": "s1a2",
+        "warnings": []
+      },
+      "EMAIL_MESSAGE02": {
+        "bccEmail": "s258",
+        "campaignId": "s259",
+        "ccEmail": "s25a",
+        "contactPropertiesFallbacks": {},
+        "contentRevisionId": "s25c",
+        "dataVariablesFallbacks": {},
+        "emailFormat": "s25e",
+        "eventPropertiesFallbacks": {},
+        "expectedRevisionId": "s260",
+        "fromEmail": "s261",
+        "fromName": "s262",
+        "id": "EMAIL_MESSAGE02",
+        "languageCode": "s264",
+        "lmx": "s265",
+        "previewText": "s266",
+        "replyToEmail": "s267",
+        "subject": "s268",
+        "transactionalId": "s269",
+        "updatedAt": "s26a",
+        "warnings": []
+      }
+    }
+  },
+  "new": {
+    "email_message": {
+      "email_message_ref01": {
+        "bccEmail": "s320",
+        "campaignId": "s321",
+        "ccEmail": "s322",
+        "contactPropertiesFallbacks": {},
+        "contentRevisionId": "s324",
+        "dataVariablesFallbacks": {},
+        "emailFormat": "s326",
+        "eventPropertiesFallbacks": {},
+        "expectedRevisionId": "s328",
+        "fromEmail": "s329",
+        "fromName": "s32a",
+        "languageCode": "s32c",
+        "lmx": "s32d",
+        "previewText": "s32e",
+        "replyToEmail": "s32f",
+        "subject": "s330",
+        "transactionalId": "s331",
+        "updatedAt": "s332",
+        "warnings": []
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/email-messages/{emailMessageId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/email-messages/{emailMessageId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

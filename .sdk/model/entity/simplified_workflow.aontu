@@ -1,0 +1,351 @@
+# Entity: simplified_workflow
+
+main: kit: entity: simplified_workflow: {
+
+  alias: field: {}
+
+  fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the workflow was created."
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "The description of the workflow."
+      t: "`$STRING`"
+    }
+    expectedRevisionId: {
+      h: "Expected Revision Id"
+      n: "expectedRevisionId"
+      r: true
+      sh: "The workflow revision token returned by the latest workflow read or mutation."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the workflow."
+      t: "`$STRING`"
+    }
+    mailingListId: {
+      h: "Mailing List Id"
+      n: "mailingListId"
+      op: {
+        create: {
+          req: false
+          type: [
+            "`$ONE`"
+            [
+              "`$STRING`"
+              "`$NULL`"
+            ]
+          ]
+        }
+      }
+      r: true
+      sh: "The ID of the mailing list the workflow sends to."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+        list: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "The name of the workflow."
+      t: "`$STRING`"
+    }
+    nodes: {
+      h: "Nodes"
+      n: "nodes"
+      r: true
+      sh: "A map of node IDs to simplified node objects."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 11
+      }
+    }
+    rootNodeId: {
+      h: "Root Node Id"
+      n: "rootNodeId"
+      r: true
+      sh: "The ID of the root node in the workflow graph."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the workflow was last updated."
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the workflow in the Loops app."
+      t: "`$STRING`"
+    }
+    workflowRevisionId: {
+      h: "Workflow Revision Id"
+      n: "workflowRevisionId"
+      r: true
+      sh: "The current workflow revision token."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "simplified_workflow"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "description"
+            "expectedRevisionId"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workflowId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "description"
+            "mailingListId"
+            "name"
+          ]
+          co: {
+            id: "POST /v1/workflows"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/workflows"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+          ]
+          t: {
+            req: {
+              description: "`reqdata.description`"
+              mailingListId: "`reqdata.mailing_list_id`"
+              name: "`reqdata.name`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/workflows"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflows"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/workflows/{workflowId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/workflows/{workflowId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              workflowId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

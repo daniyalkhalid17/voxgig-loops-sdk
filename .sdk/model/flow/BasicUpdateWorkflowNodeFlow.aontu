@@ -1,0 +1,23 @@
+# BasicUpdateWorkflowNodeFlow
+
+main: kit: flow: BasicUpdateWorkflowNodeFlow:
+{
+  entity: "update_workflow_node",
+  kind: "basic",
+  name: "BasicUpdateWorkflowNodeFlow",
+  step: [
+    {
+      i: {
+        ref: "update_workflow_node_ref01"
+      }
+
+      m: {
+        node_id: "node01",
+        workflow_id: "workflow01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicUpdateWorkflowNodeFlow"
+}

@@ -1,0 +1,67 @@
+# Entity: contact_suppression_remove
+
+main: kit: entity: contact_suppression_remove: {
+
+  alias: field: {}
+
+  name: "contact_suppression_remove"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /v1/contacts/suppression"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "email"
+                or: "email"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "user_id"
+                or: "userId"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v1/contacts/suppression"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "contacts"
+            }
+            {
+              lit: "suppression"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.removalQuota`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

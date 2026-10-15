@@ -1,0 +1,127 @@
+# Entity: change_workflow_mailing_list
+
+main: kit: entity: change_workflow_mailing_list: {
+
+  alias: field: {}
+
+  fields: {
+    dryRun: {
+      h: "Dry Run"
+      n: "dryRun"
+      r: false
+      sh: "If `true`, the request will be validated but the workflow will not be modified."
+      t: "`$BOOLEAN`"
+    }
+    expectedRevisionId: {
+      h: "Expected Revision Id"
+      n: "expectedRevisionId"
+      r: true
+      sh: "The workflow revision token returned by the latest workflow read or mutation."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    mailingListId: {
+      h: "Mailing List Id"
+      n: "mailingListId"
+      r: true
+      sh: "The mailing list to use for the workflow."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    queuedContactPolicy: {
+      h: "Queued Contact Policy"
+      n: "queuedContactPolicy"
+      r: false
+      sh: "`fail` returns queued-contact impact instead of mutating."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "change_workflow_mailing_list"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "dryRun"
+            "expectedRevisionId"
+            "mailingListId"
+            "queuedContactPolicy"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}/mailing-list"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}/mailing-list"
+          q: {
+            exist: [
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "mailing-list"
+            }
+          ]
+          t: {
+            req: {
+              dryRun: "`reqdata.dry_run`"
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              mailingListId: "`reqdata.mailing_list_id`"
+              queuedContactPolicy: "`reqdata.queued_contact_policy`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

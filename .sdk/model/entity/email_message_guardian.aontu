@@ -1,0 +1,98 @@
+# Entity: email_message_guardian
+
+main: kit: entity: email_message_guardian: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      sh: "Validation errors."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    warnings: {
+      h: "Warnings"
+      n: "warnings"
+      r: true
+      sh: "Validation warnings."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "email_message_guardian"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/email-messages/{emailMessageId}/guardian"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "emailMessageId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/email-messages/{emailMessageId}/guardian"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              emailMessageId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "email-messages"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "guardian"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

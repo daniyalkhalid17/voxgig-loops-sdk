@@ -1,0 +1,108 @@
+# Entity: event_success
+
+main: kit: entity: event_success: {
+
+  alias: field: {}
+
+  fields: {
+    email: {
+      h: "Email"
+      n: "email"
+      r: false
+      sh: "The contact's email address."
+      t: "`$STRING`"
+    }
+    eventName: {
+      h: "Event Name"
+      n: "eventName"
+      r: true
+      sh: "The name of the event."
+      t: "`$STRING`"
+    }
+    eventProperties: {
+      h: "Event Properties"
+      n: "eventProperties"
+      r: false
+      sh: "An object containing event property data for the event, available in emails sent by the event."
+      t: "`$OBJECT`"
+    }
+    mailingLists: {
+      h: "Mailing Lists"
+      n: "mailingLists"
+      r: false
+      sh: "Manage mailing list subscriptions."
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    userId: {
+      h: "User Id"
+      n: "userId"
+      r: false
+      sh: "The contact's unique user ID."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "event_success"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "email"
+            "eventName"
+            "eventProperties"
+            "mailingLists"
+            "userId"
+          ]
+          co: {
+            id: "POST /v1/events/send"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "idempotency_key"
+                or: "Idempotency-Key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/events/send"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "events"
+            }
+            {
+              lit: "send"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

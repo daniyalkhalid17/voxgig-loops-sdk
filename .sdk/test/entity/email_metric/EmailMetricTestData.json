@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "email_metric": {
+      "EMAIL_METRIC00": {
+        "clicks": 70,
+        "hardBounces": 71,
+        "opens": 72,
+        "sends": 73,
+        "softBounces": 74,
+        "spamReports": 75,
+        "unsubscribes": 76,
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "campaign_id": "CAMPAIGN01",
+        "id": "EMAIL_METRIC00"
+      },
+      "EMAIL_METRIC01": {
+        "clicks": 140,
+        "hardBounces": 141,
+        "opens": 142,
+        "sends": 143,
+        "softBounces": 144,
+        "spamReports": 145,
+        "unsubscribes": 146,
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "campaign_id": "CAMPAIGN01",
+        "id": "EMAIL_METRIC01"
+      },
+      "EMAIL_METRIC02": {
+        "clicks": 210,
+        "hardBounces": 211,
+        "opens": 212,
+        "sends": 213,
+        "softBounces": 214,
+        "spamReports": 215,
+        "unsubscribes": 216,
+        "node_id": "NODE01",
+        "workflow_id": "WORKFLOW01",
+        "campaign_id": "CAMPAIGN01",
+        "id": "EMAIL_METRIC02"
+      }
+    }
+  },
+  "new": {
+    "email_metric": {
+      "email_metric_ref01": {
+        "clicks": 280,
+        "hardBounces": 281,
+        "opens": 282,
+        "sends": 283,
+        "softBounces": 284,
+        "spamReports": 285,
+        "unsubscribes": 286
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/workflows/{workflowId}/nodes/{nodeId}/metrics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/campaigns/{campaignId}/metrics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

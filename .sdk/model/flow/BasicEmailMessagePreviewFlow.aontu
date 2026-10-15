@@ -1,0 +1,22 @@
+# BasicEmailMessagePreviewFlow
+
+main: kit: flow: BasicEmailMessagePreviewFlow:
+{
+  entity: "email_message_preview",
+  kind: "basic",
+  name: "BasicEmailMessagePreviewFlow",
+  step: [
+    {
+      i: {
+        ref: "email_message_preview_ref01"
+      }
+
+      m: {
+        email_message_id: "email_message01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicEmailMessagePreviewFlow"
+}

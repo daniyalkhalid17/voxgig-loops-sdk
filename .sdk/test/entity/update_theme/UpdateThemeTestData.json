@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "update_theme": {
+      "UPDATE_THEME00": {
+        "affectedEmailCount": 70,
+        "createdAt": "s47",
+        "id": "UPDATE_THEME00",
+        "isDefault": false,
+        "name": "s4a",
+        "styles": {},
+        "updatedAt": "s4c"
+      },
+      "UPDATE_THEME01": {
+        "affectedEmailCount": 140,
+        "createdAt": "s8d",
+        "id": "UPDATE_THEME01",
+        "isDefault": false,
+        "name": "s90",
+        "styles": {},
+        "updatedAt": "s92"
+      },
+      "UPDATE_THEME02": {
+        "affectedEmailCount": 210,
+        "createdAt": "sd3",
+        "id": "UPDATE_THEME02",
+        "isDefault": false,
+        "name": "sd6",
+        "styles": {},
+        "updatedAt": "sd8"
+      }
+    }
+  },
+  "new": {
+    "update_theme": {
+      "update_theme_ref01": {
+        "affectedEmailCount": 280,
+        "createdAt": "s119",
+        "isDefault": false,
+        "name": "s11c",
+        "styles": {},
+        "updatedAt": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/themes/{themeId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Guide
+
+@"@voxgig/apidef/model/guide.aontu"
+
+@"./base-guide.aontu"
+
+
+
+
+# Custom mapping: Guardian returns a validation result, not a list.
+entity: email_message_guardian: {
+  path: "/v1/email-messages/{emailMessageId}/guardian": {
+    rename: param: "emailMessageId": *"id"
+    op: load: method: *GET
+  }
+}

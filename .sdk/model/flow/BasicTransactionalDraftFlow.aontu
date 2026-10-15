@@ -1,0 +1,22 @@
+# BasicTransactionalDraftFlow
+
+main: kit: flow: BasicTransactionalDraftFlow:
+{
+  entity: "transactional_draft",
+  kind: "basic",
+  name: "BasicTransactionalDraftFlow",
+  step: [
+    {
+      i: {
+        ref: "transactional_draft_ref01"
+      }
+
+      m: {
+        transactional_email_id: "transactional_email01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicTransactionalDraftFlow"
+}

@@ -1,0 +1,52 @@
+# BasicAudienceSegmentFlow
+
+main: kit: flow: BasicAudienceSegmentFlow:
+{
+  entity: "audience_segment",
+  kind: "basic",
+  name: "BasicAudienceSegmentFlow",
+  step: [
+    {
+      i: {
+        ref: "audience_segment_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "audience_segment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "audience_segment_ref01",
+        srcdatavar: "audience_segment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "audience_segment01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-audience_segment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAudienceSegmentFlow"
+}

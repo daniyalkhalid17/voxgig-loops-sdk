@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "update_workflow_node": {
+      "UPDATE_WORKFLOW_NODE00": {
+        "description": "s6e",
+        "expectedRevisionId": "s6f",
+        "id": "UPDATE_WORKFLOW_NODE00",
+        "mailingListId": "s71",
+        "name": "s72",
+        "nodes": {},
+        "payload": "s74",
+        "rootNodeId": "s75",
+        "status": "s76",
+        "url": "s77",
+        "workflowRevisionId": "s78",
+        "workflow_id": "WORKFLOW01"
+      },
+      "UPDATE_WORKFLOW_NODE01": {
+        "description": "sdc",
+        "expectedRevisionId": "sdd",
+        "id": "UPDATE_WORKFLOW_NODE01",
+        "mailingListId": "sdf",
+        "name": "se0",
+        "nodes": {},
+        "payload": "se2",
+        "rootNodeId": "se3",
+        "status": "se4",
+        "url": "se5",
+        "workflowRevisionId": "se6",
+        "workflow_id": "WORKFLOW01"
+      },
+      "UPDATE_WORKFLOW_NODE02": {
+        "description": "s14a",
+        "expectedRevisionId": "s14b",
+        "id": "UPDATE_WORKFLOW_NODE02",
+        "mailingListId": "s14d",
+        "name": "s14e",
+        "nodes": {},
+        "payload": "s150",
+        "rootNodeId": "s151",
+        "status": "s152",
+        "url": "s153",
+        "workflowRevisionId": "s154",
+        "workflow_id": "WORKFLOW01"
+      }
+    }
+  },
+  "new": {
+    "update_workflow_node": {
+      "update_workflow_node_ref01": {
+        "description": "s1b8",
+        "expectedRevisionId": "s1b9",
+        "mailingListId": "s1bb",
+        "name": "s1bc",
+        "nodes": {},
+        "payload": "s1be",
+        "rootNodeId": "s1bf",
+        "status": "s1c0",
+        "url": "s1c1",
+        "workflowRevisionId": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/workflows/{workflowId}/nodes/{nodeId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

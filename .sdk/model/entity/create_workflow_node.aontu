@@ -1,0 +1,106 @@
+# Entity: create_workflow_node
+
+main: kit: entity: create_workflow_node: {
+
+  alias: field: {}
+
+  fields: {
+    node: {
+      h: "Node"
+      n: "node"
+      r: true
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 15
+      }
+    }
+    workflow: {
+      h: "Workflow"
+      n: "workflow"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 13
+      }
+    }
+  }
+
+  name: "create_workflow_node"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "beforeNodeId"
+            "expectedRevisionId"
+            "fromNodeId"
+            "insertMode"
+            "nodeTypeName"
+            "toNodeId"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}/nodes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}/nodes"
+          q: {
+            exist: [
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

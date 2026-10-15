@@ -1,0 +1,83 @@
+{
+  "existing": {
+    "transactional_resource": {
+      "TRANSACTIONAL_RESOURCE00": {
+        "createdAt": "s5a",
+        "dataVariables": [],
+        "draftEmailMessageId": "s5c",
+        "id": "TRANSACTIONAL_RESOURCE00",
+        "name": "s5e",
+        "publishedEmailMessageId": "s5f",
+        "transactionalGroupId": "s60",
+        "updatedAt": "s61",
+        "url": "s62",
+        "transactional_id": "TRANSACTIONAL01"
+      },
+      "TRANSACTIONAL_RESOURCE01": {
+        "createdAt": "sb4",
+        "dataVariables": [],
+        "draftEmailMessageId": "sb6",
+        "id": "TRANSACTIONAL_RESOURCE01",
+        "name": "sb8",
+        "publishedEmailMessageId": "sb9",
+        "transactionalGroupId": "sba",
+        "updatedAt": "sbb",
+        "url": "sbc",
+        "transactional_id": "TRANSACTIONAL01"
+      },
+      "TRANSACTIONAL_RESOURCE02": {
+        "createdAt": "s10e",
+        "dataVariables": [],
+        "draftEmailMessageId": "s110",
+        "id": "TRANSACTIONAL_RESOURCE02",
+        "name": "s112",
+        "publishedEmailMessageId": "s113",
+        "transactionalGroupId": "s114",
+        "updatedAt": "s115",
+        "url": "s116",
+        "transactional_id": "TRANSACTIONAL01"
+      }
+    }
+  },
+  "new": {
+    "transactional_resource": {
+      "transactional_resource_ref01": {
+        "createdAt": "s168",
+        "dataVariables": [],
+        "draftEmailMessageId": "s16a",
+        "name": "s16c",
+        "publishedEmailMessageId": "s16d",
+        "transactionalGroupId": "s16e",
+        "updatedAt": "s16f",
+        "url": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/transactional-emails/{transactionalId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/transactional-emails/{transactionalId}/publish": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /v1/transactional-emails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/transactional-emails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/transactional-emails/{transactionalId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

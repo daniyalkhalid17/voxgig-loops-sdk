@@ -1,0 +1,390 @@
+# Entity: campaign
+
+main: kit: entity: campaign: {
+
+  alias: field: {}
+
+  fields: {
+    audienceFilter: {
+      h: "Audience Filter"
+      n: "audienceFilter"
+      r: true
+      sh: "The filter rules that define the audience for this campaign, if set."
+      t: [
+        "`$ONE`"
+        [
+          "`$OBJECT`"
+          "`$NULL`"
+        ]
+      ]
+      union: {
+        branches: 3
+        count: 1
+        depth: 7
+      }
+    }
+    audienceSegmentId: {
+      h: "Audience Segment Id"
+      n: "audienceSegmentId"
+      op: {
+        create: {
+          req: false
+          type: [
+            "`$ONE`"
+            [
+              "`$STRING`"
+              "`$NULL`"
+            ]
+          ]
+        }
+      }
+      r: true
+      sh: "The ID of the audience segment this campaign targets, if set."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    campaignGroupId: {
+      h: "Campaign Group Id"
+      n: "campaignGroupId"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The ID of the campaign group this campaign belongs to."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the campaign was created."
+      t: "`$STRING`"
+    }
+    emailMessageId: {
+      h: "Email Message Id"
+      n: "emailMessageId"
+      r: true
+      sh: "The associated email message ID."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the campaign."
+      t: "`$STRING`"
+    }
+    mailingListId: {
+      h: "Mailing List Id"
+      n: "mailingListId"
+      op: {
+        create: {
+          req: false
+          type: [
+            "`$ONE`"
+            [
+              "`$STRING`"
+              "`$NULL`"
+            ]
+          ]
+        }
+      }
+      r: true
+      sh: "The ID of the mailing list this campaign sends to, if set."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "The name of the campaign."
+      t: "`$STRING`"
+    }
+    scheduling: {
+      h: "Scheduling"
+      n: "scheduling"
+      r: true
+      sh: "When the campaign is scheduled to send."
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The status of the campaign."
+      t: "`$STRING`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the campaign was last updated."
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the campaign in the Loops app."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "campaign"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "audienceFilter"
+            "audienceSegmentId"
+            "campaignGroupId"
+            "mailingListId"
+            "name"
+            "scheduling"
+          ]
+          co: {
+            id: "POST /v1/campaigns/{campaignId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "campaignId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/campaigns/{campaignId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              campaignId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              audienceFilter: "`reqdata.audience_filter`"
+              audienceSegmentId: "`reqdata.audience_segment_id`"
+              campaignGroupId: "`reqdata.campaign_group_id`"
+              mailingListId: "`reqdata.mailing_list_id`"
+              name: "`reqdata.name`"
+              scheduling: "`reqdata.scheduling`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          bf: [
+            "audienceFilter"
+            "audienceSegmentId"
+            "campaignGroupId"
+            "mailingListId"
+            "name"
+            "scheduling"
+          ]
+          co: {
+            id: "POST /v1/campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/campaigns"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: {
+              audienceFilter: "`reqdata.audience_filter`"
+              audienceSegmentId: "`reqdata.audience_segment_id`"
+              campaignGroupId: "`reqdata.campaign_group_id`"
+              mailingListId: "`reqdata.mailing_list_id`"
+              name: "`reqdata.name`"
+              scheduling: "`reqdata.scheduling`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/campaigns"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "per_page"
+                or: "perPage"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/campaigns"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/campaigns/{campaignId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "campaignId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/campaigns/{campaignId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              campaignId: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "campaigns"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

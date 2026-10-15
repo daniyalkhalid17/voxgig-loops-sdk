@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "change_workflow_mailing_list": {
+      "CHANGE_WORKFLOW_MAILING_LIST00": {
+        "dryRun": true,
+        "expectedRevisionId": "s29",
+        "mailingListId": "s2a",
+        "queuedContactPolicy": "s2b",
+        "workflow_id": "WORKFLOW01",
+        "id": "CHANGE_WORKFLOW_MAILING_LIST00"
+      },
+      "CHANGE_WORKFLOW_MAILING_LIST01": {
+        "dryRun": true,
+        "expectedRevisionId": "s51",
+        "mailingListId": "s52",
+        "queuedContactPolicy": "s53",
+        "workflow_id": "WORKFLOW01",
+        "id": "CHANGE_WORKFLOW_MAILING_LIST01"
+      },
+      "CHANGE_WORKFLOW_MAILING_LIST02": {
+        "dryRun": true,
+        "expectedRevisionId": "s79",
+        "mailingListId": "s7a",
+        "queuedContactPolicy": "s7b",
+        "workflow_id": "WORKFLOW01",
+        "id": "CHANGE_WORKFLOW_MAILING_LIST02"
+      }
+    }
+  },
+  "new": {
+    "change_workflow_mailing_list": {
+      "change_workflow_mailing_list_ref01": {
+        "dryRun": true,
+        "expectedRevisionId": "sa1",
+        "mailingListId": "sa2",
+        "queuedContactPolicy": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/workflows/{workflowId}/mailing-list": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+# Entity: transactional_draft
+
+main: kit: entity: transactional_draft: {
+
+  alias: field: {}
+
+  fields: {
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the transactional email was created."
+      t: "`$STRING`"
+    }
+    dataVariables: {
+      h: "Data Variables"
+      n: "dataVariables"
+      r: true
+      sh: "Data variable names used by the published email."
+      t: "`$ARRAY`"
+    }
+    draftEmailMessageContentRevisionId: {
+      h: "Draft Email Message Content Revision Id"
+      n: "draftEmailMessageContentRevisionId"
+      r: true
+      sh: "The `contentRevisionId` of the draft email message."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    draftEmailMessageId: {
+      h: "Draft Email Message Id"
+      n: "draftEmailMessageId"
+      r: true
+      sh: "The ID of the draft email message."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the transactional email."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "The name of the transactional email."
+      t: "`$STRING`"
+    }
+    publishedEmailMessageId: {
+      h: "Published Email Message Id"
+      n: "publishedEmailMessageId"
+      r: true
+      sh: "The ID of the published email message."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    transactionalGroupId: {
+      h: "Transactional Group Id"
+      n: "transactionalGroupId"
+      r: false
+      sh: "The ID of the group this transactional email belongs to."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: true
+      sh: "ISO 8601 timestamp for when the transactional email was last updated."
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the transactional email in the Loops app."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "transactional_draft"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /v1/transactional-emails/{transactionalId}/draft"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "transactional_email_id"
+                or: "transactionalId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/transactional-emails/{transactionalId}/draft"
+          q: {
+            exist: [
+              "transactional_email_id"
+            ]
+          }
+          r: {
+            param: {
+              transactionalId: "transactional_email_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transactional-emails"
+            }
+            {
+              var: "transactional_email_id"
+            }
+            {
+              lit: "draft"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

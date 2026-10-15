@@ -1,0 +1,205 @@
+# Entity: update_workflow_node
+
+main: kit: entity: update_workflow_node: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "The description of the workflow."
+      t: "`$STRING`"
+    }
+    expectedRevisionId: {
+      h: "Expected Revision Id"
+      n: "expectedRevisionId"
+      r: true
+      sh: "The workflow revision token returned by the latest workflow read or mutation."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The ID of the workflow."
+      t: "`$STRING`"
+    }
+    mailingListId: {
+      h: "Mailing List Id"
+      n: "mailingListId"
+      r: true
+      sh: "The ID of the mailing list the workflow sends to."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the workflow."
+      t: "`$STRING`"
+    }
+    nodes: {
+      h: "Nodes"
+      n: "nodes"
+      r: true
+      sh: "A map of node IDs to simplified node objects."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 11
+      }
+    }
+    payload: {
+      h: "Payload"
+      n: "payload"
+      r: true
+      sh: "Node-type-specific fields to update."
+      t: "`$ANY`"
+      union: {
+        branches: 8
+        count: 3
+        depth: 11
+      }
+    }
+    rootNodeId: {
+      h: "Root Node Id"
+      n: "rootNodeId"
+      r: true
+      sh: "The ID of the root node in the workflow graph."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the workflow in the Loops app."
+      t: "`$STRING`"
+    }
+    workflowRevisionId: {
+      h: "Workflow Revision Id"
+      n: "workflowRevisionId"
+      r: true
+      sh: "The current workflow revision token."
+      t: [
+        "`$ONE`"
+        [
+          "`$STRING`"
+          "`$NULL`"
+        ]
+      ]
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "update_workflow_node"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "expectedRevisionId"
+            "payload"
+          ]
+          co: {
+            id: "POST /v1/workflows/{workflowId}/nodes/{nodeId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "nodeId"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "workflow_id"
+                or: "workflowId"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/v1/workflows/{workflowId}/nodes/{nodeId}"
+          q: {
+            exist: [
+              "id"
+              "workflow_id"
+            ]
+          }
+          r: {
+            param: {
+              nodeId: "id"
+              workflowId: "workflow_id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "workflows"
+            }
+            {
+              var: "workflow_id"
+            }
+            {
+              lit: "nodes"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: {
+              expectedRevisionId: "`reqdata.expected_revision_id`"
+              payload: "`reqdata.payload`"
+            }
+            res: "`body.workflow`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.workflow")]
+  ]
+
+}

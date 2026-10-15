@@ -1,0 +1,22 @@
+# BasicChangeWorkflowMailingListFlow
+
+main: kit: flow: BasicChangeWorkflowMailingListFlow:
+{
+  entity: "change_workflow_mailing_list",
+  kind: "basic",
+  name: "BasicChangeWorkflowMailingListFlow",
+  step: [
+    {
+      i: {
+        ref: "change_workflow_mailing_list_ref01"
+      }
+
+      m: {
+        workflow_id: "workflow01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicChangeWorkflowMailingListFlow"
+}

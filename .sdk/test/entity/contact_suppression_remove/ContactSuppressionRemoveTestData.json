@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "contact_suppression_remove": {
+      "CONTACT_SUPPRESSION_REMOVE00": {
+        "id": "CONTACT_SUPPRESSION_REMOVE00"
+      },
+      "CONTACT_SUPPRESSION_REMOVE01": {
+        "id": "CONTACT_SUPPRESSION_REMOVE01"
+      },
+      "CONTACT_SUPPRESSION_REMOVE02": {
+        "id": "CONTACT_SUPPRESSION_REMOVE02"
+      }
+    }
+  },
+  "new": {
+    "contact_suppression_remove": {
+      "contact_suppression_remove_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /v1/contacts/suppression": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
